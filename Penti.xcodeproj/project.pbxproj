@@ -1,0 +1,405 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AAA7CCA91D23C8CD00A9A4F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA7CCA81D23C8CD00A9A4F8 /* AppDelegate.swift */; };
+		AAA7CCAB1D23C8CD00A9A4F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA7CCAA1D23C8CD00A9A4F8 /* ViewController.swift */; };
+		AAA7CCAE1D23C8CD00A9A4F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAA7CCAC1D23C8CD00A9A4F8 /* Main.storyboard */; };
+		AAA7CCB01D23C8CD00A9A4F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA7CCAF1D23C8CD00A9A4F8 /* Assets.xcassets */; };
+		AAA7CCB31D23C8CD00A9A4F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAA7CCB11D23C8CD00A9A4F8 /* LaunchScreen.storyboard */; };
+		AAA7CCBE1D23C8CD00A9A4F8 /* PentiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA7CCBD1D23C8CD00A9A4F8 /* PentiTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AAA7CCBA1D23C8CD00A9A4F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AAA7CC9D1D23C8CD00A9A4F8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AAA7CCA41D23C8CD00A9A4F8;
+			remoteInfo = Penti;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AAA7CCA51D23C8CD00A9A4F8 /* Penti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Penti.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAA7CCA81D23C8CD00A9A4F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AAA7CCAA1D23C8CD00A9A4F8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AAA7CCAD1D23C8CD00A9A4F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AAA7CCAF1D23C8CD00A9A4F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AAA7CCB21D23C8CD00A9A4F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AAA7CCB41D23C8CD00A9A4F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAA7CCB91D23C8CD00A9A4F8 /* PentiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PentiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAA7CCBD1D23C8CD00A9A4F8 /* PentiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PentiTests.swift; sourceTree = "<group>"; };
+		AAA7CCBF1D23C8CD00A9A4F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AAA7CCA21D23C8CD00A9A4F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAA7CCB61D23C8CD00A9A4F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AAA7CC9C1D23C8CD00A9A4F8 = {
+			isa = PBXGroup;
+			children = (
+				AAA7CCA71D23C8CD00A9A4F8 /* Penti */,
+				AAA7CCBC1D23C8CD00A9A4F8 /* PentiTests */,
+				AAA7CCA61D23C8CD00A9A4F8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AAA7CCA61D23C8CD00A9A4F8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AAA7CCA51D23C8CD00A9A4F8 /* Penti.app */,
+				AAA7CCB91D23C8CD00A9A4F8 /* PentiTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAA7CCA71D23C8CD00A9A4F8 /* Penti */ = {
+			isa = PBXGroup;
+			children = (
+				AAA7CCA81D23C8CD00A9A4F8 /* AppDelegate.swift */,
+				AAA7CCAA1D23C8CD00A9A4F8 /* ViewController.swift */,
+				AAA7CCAC1D23C8CD00A9A4F8 /* Main.storyboard */,
+				AAA7CCAF1D23C8CD00A9A4F8 /* Assets.xcassets */,
+				AAA7CCB11D23C8CD00A9A4F8 /* LaunchScreen.storyboard */,
+				AAA7CCB41D23C8CD00A9A4F8 /* Info.plist */,
+			);
+			path = Penti;
+			sourceTree = "<group>";
+		};
+		AAA7CCBC1D23C8CD00A9A4F8 /* PentiTests */ = {
+			isa = PBXGroup;
+			children = (
+				AAA7CCBD1D23C8CD00A9A4F8 /* PentiTests.swift */,
+				AAA7CCBF1D23C8CD00A9A4F8 /* Info.plist */,
+			);
+			path = PentiTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AAA7CCA41D23C8CD00A9A4F8 /* Penti */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAA7CCC21D23C8CD00A9A4F8 /* Build configuration list for PBXNativeTarget "Penti" */;
+			buildPhases = (
+				AAA7CCA11D23C8CD00A9A4F8 /* Sources */,
+				AAA7CCA21D23C8CD00A9A4F8 /* Frameworks */,
+				AAA7CCA31D23C8CD00A9A4F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Penti;
+			productName = Penti;
+			productReference = AAA7CCA51D23C8CD00A9A4F8 /* Penti.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AAA7CCB81D23C8CD00A9A4F8 /* PentiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAA7CCC51D23C8CD00A9A4F8 /* Build configuration list for PBXNativeTarget "PentiTests" */;
+			buildPhases = (
+				AAA7CCB51D23C8CD00A9A4F8 /* Sources */,
+				AAA7CCB61D23C8CD00A9A4F8 /* Frameworks */,
+				AAA7CCB71D23C8CD00A9A4F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AAA7CCBB1D23C8CD00A9A4F8 /* PBXTargetDependency */,
+			);
+			name = PentiTests;
+			productName = PentiTests;
+			productReference = AAA7CCB91D23C8CD00A9A4F8 /* PentiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AAA7CC9D1D23C8CD00A9A4F8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = mcxiaoke;
+				TargetAttributes = {
+					AAA7CCA41D23C8CD00A9A4F8 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					AAA7CCB81D23C8CD00A9A4F8 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = AAA7CCA41D23C8CD00A9A4F8;
+					};
+				};
+			};
+			buildConfigurationList = AAA7CCA01D23C8CD00A9A4F8 /* Build configuration list for PBXProject "Penti" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AAA7CC9C1D23C8CD00A9A4F8;
+			productRefGroup = AAA7CCA61D23C8CD00A9A4F8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AAA7CCA41D23C8CD00A9A4F8 /* Penti */,
+				AAA7CCB81D23C8CD00A9A4F8 /* PentiTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AAA7CCA31D23C8CD00A9A4F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAA7CCB31D23C8CD00A9A4F8 /* LaunchScreen.storyboard in Resources */,
+				AAA7CCB01D23C8CD00A9A4F8 /* Assets.xcassets in Resources */,
+				AAA7CCAE1D23C8CD00A9A4F8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAA7CCB71D23C8CD00A9A4F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AAA7CCA11D23C8CD00A9A4F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAA7CCAB1D23C8CD00A9A4F8 /* ViewController.swift in Sources */,
+				AAA7CCA91D23C8CD00A9A4F8 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAA7CCB51D23C8CD00A9A4F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAA7CCBE1D23C8CD00A9A4F8 /* PentiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AAA7CCBB1D23C8CD00A9A4F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AAA7CCA41D23C8CD00A9A4F8 /* Penti */;
+			targetProxy = AAA7CCBA1D23C8CD00A9A4F8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AAA7CCAC1D23C8CD00A9A4F8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAA7CCAD1D23C8CD00A9A4F8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AAA7CCB11D23C8CD00A9A4F8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAA7CCB21D23C8CD00A9A4F8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AAA7CCC01D23C8CD00A9A4F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AAA7CCC11D23C8CD00A9A4F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AAA7CCC31D23C8CD00A9A4F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Penti/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.ios.penti;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AAA7CCC41D23C8CD00A9A4F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Penti/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.ios.penti;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AAA7CCC61D23C8CD00A9A4F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PentiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.ios.PentiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Penti.app/Penti";
+			};
+			name = Debug;
+		};
+		AAA7CCC71D23C8CD00A9A4F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PentiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.ios.PentiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Penti.app/Penti";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AAA7CCA01D23C8CD00A9A4F8 /* Build configuration list for PBXProject "Penti" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAA7CCC01D23C8CD00A9A4F8 /* Debug */,
+				AAA7CCC11D23C8CD00A9A4F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAA7CCC21D23C8CD00A9A4F8 /* Build configuration list for PBXNativeTarget "Penti" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAA7CCC31D23C8CD00A9A4F8 /* Debug */,
+				AAA7CCC41D23C8CD00A9A4F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AAA7CCC51D23C8CD00A9A4F8 /* Build configuration list for PBXNativeTarget "PentiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAA7CCC61D23C8CD00A9A4F8 /* Debug */,
+				AAA7CCC71D23C8CD00A9A4F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AAA7CC9D1D23C8CD00A9A4F8 /* Project object */;
+}
