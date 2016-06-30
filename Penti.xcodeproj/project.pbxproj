@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52D11472533E9E9641E5AD8E /* Pods_PentiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF1C920D7AFD2CC6F289C13F /* Pods_PentiTests.framework */; };
+		AA240EEB1D24F99F00DA1D2B /* FeedItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA240EEA1D24F99F00DA1D2B /* FeedItemCell.swift */; };
+		AA240EEE1D24FCCB00DA1D2B /* PentiApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA240EED1D24FCCB00DA1D2B /* PentiApi.swift */; };
+		AA240EF01D2503B400DA1D2B /* Feeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA240EEF1D2503B400DA1D2B /* Feeds.swift */; };
 		AAA7CCA91D23C8CD00A9A4F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA7CCA81D23C8CD00A9A4F8 /* AppDelegate.swift */; };
 		AAA7CCAB1D23C8CD00A9A4F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA7CCAA1D23C8CD00A9A4F8 /* ViewController.swift */; };
 		AAA7CCAE1D23C8CD00A9A4F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAA7CCAC1D23C8CD00A9A4F8 /* Main.storyboard */; };
 		AAA7CCB01D23C8CD00A9A4F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA7CCAF1D23C8CD00A9A4F8 /* Assets.xcassets */; };
 		AAA7CCB31D23C8CD00A9A4F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAA7CCB11D23C8CD00A9A4F8 /* LaunchScreen.storyboard */; };
 		AAA7CCBE1D23C8CD00A9A4F8 /* PentiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA7CCBD1D23C8CD00A9A4F8 /* PentiTests.swift */; };
+		CDC2E26E969854890629BA04 /* Pods_Penti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6CEB727175A76D9DF7DC277 /* Pods_Penti.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +31,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		69AFBF9E25D68A6FE75DB43C /* Pods-Penti.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Penti.release.xcconfig"; path = "Pods/Target Support Files/Pods-Penti/Pods-Penti.release.xcconfig"; sourceTree = "<group>"; };
+		AA240EEA1D24F99F00DA1D2B /* FeedItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemCell.swift; sourceTree = "<group>"; };
+		AA240EED1D24FCCB00DA1D2B /* PentiApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PentiApi.swift; sourceTree = "<group>"; };
+		AA240EEF1D2503B400DA1D2B /* Feeds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feeds.swift; sourceTree = "<group>"; };
 		AAA7CCA51D23C8CD00A9A4F8 /* Penti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Penti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA7CCA81D23C8CD00A9A4F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAA7CCAA1D23C8CD00A9A4F8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +45,11 @@
 		AAA7CCB91D23C8CD00A9A4F8 /* PentiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PentiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA7CCBD1D23C8CD00A9A4F8 /* PentiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PentiTests.swift; sourceTree = "<group>"; };
 		AAA7CCBF1D23C8CD00A9A4F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFEBAFDAA945AA905EBCBA8F /* Pods-PentiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PentiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PentiTests/Pods-PentiTests.release.xcconfig"; sourceTree = "<group>"; };
+		C07CE5BD68CFA80647D886B9 /* Pods-PentiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PentiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PentiTests/Pods-PentiTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C6CEB727175A76D9DF7DC277 /* Pods_Penti.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Penti.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF1C920D7AFD2CC6F289C13F /* Pods_PentiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PentiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2A933573E22B0E987D5DF9A /* Pods-Penti.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Penti.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Penti/Pods-Penti.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDC2E26E969854890629BA04 /* Pods_Penti.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,18 +65,65 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52D11472533E9E9641E5AD8E /* Pods_PentiTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C55AF1FC2172E6A8F627B89 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D2A933573E22B0E987D5DF9A /* Pods-Penti.debug.xcconfig */,
+				69AFBF9E25D68A6FE75DB43C /* Pods-Penti.release.xcconfig */,
+				C07CE5BD68CFA80647D886B9 /* Pods-PentiTests.debug.xcconfig */,
+				BFEBAFDAA945AA905EBCBA8F /* Pods-PentiTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9878637D2A4F17A6201F3B44 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C6CEB727175A76D9DF7DC277 /* Pods_Penti.framework */,
+				CF1C920D7AFD2CC6F289C13F /* Pods_PentiTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AA240EE61D24F4CB00DA1D2B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AA240EEF1D2503B400DA1D2B /* Feeds.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		AA240EE91D24F98200DA1D2B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AA240EEA1D24F99F00DA1D2B /* FeedItemCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		AA240EEC1D24FCB300DA1D2B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				AA240EED1D24FCCB00DA1D2B /* PentiApi.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
 		AAA7CC9C1D23C8CD00A9A4F8 = {
 			isa = PBXGroup;
 			children = (
 				AAA7CCA71D23C8CD00A9A4F8 /* Penti */,
 				AAA7CCBC1D23C8CD00A9A4F8 /* PentiTests */,
 				AAA7CCA61D23C8CD00A9A4F8 /* Products */,
+				7C55AF1FC2172E6A8F627B89 /* Pods */,
+				9878637D2A4F17A6201F3B44 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +139,9 @@
 		AAA7CCA71D23C8CD00A9A4F8 /* Penti */ = {
 			isa = PBXGroup;
 			children = (
+				AA240EEC1D24FCB300DA1D2B /* Network */,
+				AA240EE91D24F98200DA1D2B /* Views */,
+				AA240EE61D24F4CB00DA1D2B /* Models */,
 				AAA7CCA81D23C8CD00A9A4F8 /* AppDelegate.swift */,
 				AAA7CCAA1D23C8CD00A9A4F8 /* ViewController.swift */,
 				AAA7CCAC1D23C8CD00A9A4F8 /* Main.storyboard */,
@@ -103,9 +168,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AAA7CCC21D23C8CD00A9A4F8 /* Build configuration list for PBXNativeTarget "Penti" */;
 			buildPhases = (
+				E29C39360A49CBFCF915F8FB /* [CP] Check Pods Manifest.lock */,
 				AAA7CCA11D23C8CD00A9A4F8 /* Sources */,
 				AAA7CCA21D23C8CD00A9A4F8 /* Frameworks */,
 				AAA7CCA31D23C8CD00A9A4F8 /* Resources */,
+				16C9F91FC084EA37DB7FE605 /* [CP] Embed Pods Frameworks */,
+				7A87F586F78461AE196E1455 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -120,9 +188,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AAA7CCC51D23C8CD00A9A4F8 /* Build configuration list for PBXNativeTarget "PentiTests" */;
 			buildPhases = (
+				4A7679CB2B3AC89E6FDC4C7A /* [CP] Check Pods Manifest.lock */,
 				AAA7CCB51D23C8CD00A9A4F8 /* Sources */,
 				AAA7CCB61D23C8CD00A9A4F8 /* Frameworks */,
 				AAA7CCB71D23C8CD00A9A4F8 /* Resources */,
+				984CB1E81285DE3D61AB8891 /* [CP] Embed Pods Frameworks */,
+				FDB84B8C0338DB9F947EFF5F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -192,13 +263,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		16C9F91FC084EA37DB7FE605 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Penti/Pods-Penti-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A7679CB2B3AC89E6FDC4C7A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7A87F586F78461AE196E1455 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Penti/Pods-Penti-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		984CB1E81285DE3D61AB8891 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PentiTests/Pods-PentiTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E29C39360A49CBFCF915F8FB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FDB84B8C0338DB9F947EFF5F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PentiTests/Pods-PentiTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AAA7CCA11D23C8CD00A9A4F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA240EEE1D24FCCB00DA1D2B /* PentiApi.swift in Sources */,
+				AA240EEB1D24F99F00DA1D2B /* FeedItemCell.swift in Sources */,
 				AAA7CCAB1D23C8CD00A9A4F8 /* ViewController.swift in Sources */,
 				AAA7CCA91D23C8CD00A9A4F8 /* AppDelegate.swift in Sources */,
+				AA240EF01D2503B400DA1D2B /* Feeds.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +492,7 @@
 		};
 		AAA7CCC31D23C8CD00A9A4F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2A933573E22B0E987D5DF9A /* Pods-Penti.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Penti/Info.plist;
@@ -337,6 +505,7 @@
 		};
 		AAA7CCC41D23C8CD00A9A4F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69AFBF9E25D68A6FE75DB43C /* Pods-Penti.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Penti/Info.plist;
@@ -349,6 +518,7 @@
 		};
 		AAA7CCC61D23C8CD00A9A4F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C07CE5BD68CFA80647D886B9 /* Pods-PentiTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = PentiTests/Info.plist;
@@ -361,6 +531,7 @@
 		};
 		AAA7CCC71D23C8CD00A9A4F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFEBAFDAA945AA905EBCBA8F /* Pods-PentiTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = PentiTests/Info.plist;
@@ -390,6 +561,7 @@
 				AAA7CCC41D23C8CD00A9A4F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AAA7CCC51D23C8CD00A9A4F8 /* Build configuration list for PBXNativeTarget "PentiTests" */ = {
 			isa = XCConfigurationList;
@@ -398,6 +570,7 @@
 				AAA7CCC71D23C8CD00A9A4F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
