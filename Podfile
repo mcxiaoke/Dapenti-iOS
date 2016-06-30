@@ -7,6 +7,10 @@ target 'Penti' do
 
   # Pods for Penti
   pod 'Alamofire', '~> 3.4'
+  pod 'AlamofireImage', '~> 2.0'
+  pod 'AlamofireNetworkActivityIndicator', '~> 1.0'
+  pod 'ObjectMapper', '~> 1.3'
+  pod 'AlamofireObjectMapper', '~> 3.0'
   pod 'PureLayout', '~> 3.0'
   pod 'MBProgressHUD', '~> 0.9.2'
 

@@ -14,20 +14,31 @@ class ViewController: UIViewController {
   
   @IBOutlet weak var tableView:UITableView!
   
-  var items: [String] = []
+  var items: [FeedItem] = []
+  var selectedRow: Int = -1
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    for i in 0..<20 {
-      items.append("List Item \(i)")
-    }
     tableView.estimatedRowHeight = 100.0
     tableView.rowHeight = UITableViewAutomaticDimension
     
     PentiApi.sharedInstance().getPage(1, count: 30) { (feeds) in
-      //
+      if let feeds = feeds {
+        self.items = feeds
+        self.tableView.reloadData()
+      }
     }
   }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "showDetail" {
+      print("prepareForSegue \(selectedRow)")
+      let controller = segue.destinationViewController as! DetailViewController
+      controller.item = items[selectedRow]
+    }
+  }
+  
+  
 
 }
 
@@ -44,8 +55,8 @@ extension ViewController: UITableViewDataSource {
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let item = items[indexPath.row]
     let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! FeedItemCell
-    cell.titleLabel?.text = item
-    cell.subtitleLabel?.text = "index: \(indexPath.row)"
+    cell.titleLabel?.text = item.title ?? ""
+    cell.subtitleLabel?.text = item.link?.absoluteString ?? ""
     return cell
   }
 
@@ -53,5 +64,11 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
 
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    self.selectedRow = indexPath.row
+    print("didSelectRowAtIndexPath \(indexPath.row)")
+    self.performSegueWithIdentifier("showDetail", sender: nil)
+  }
+  
 }
 

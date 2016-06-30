@@ -1,18 +1,34 @@
 PODS:
   - Alamofire (3.4.1)
+  - AlamofireImage (2.4.0):
+    - Alamofire (~> 3.3)
+  - AlamofireNetworkActivityIndicator (1.0.1):
+    - Alamofire (~> 3.3)
+  - AlamofireObjectMapper (3.0.0):
+    - Alamofire (~> 3.2)
+    - ObjectMapper (~> 1.0)
   - MBProgressHUD (0.9.2)
+  - ObjectMapper (1.3.0)
   - PureLayout (3.0.2)
 
 DEPENDENCIES:
   - Alamofire (~> 3.4)
+  - AlamofireImage (~> 2.0)
+  - AlamofireNetworkActivityIndicator (~> 1.0)
+  - AlamofireObjectMapper (~> 3.0)
   - MBProgressHUD (~> 0.9.2)
+  - ObjectMapper (~> 1.3)
   - PureLayout (~> 3.0)
 
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  AlamofireImage: 87408b652e0f5ae5fe364035f15aea8b9b24c77e
+  AlamofireNetworkActivityIndicator: 49a6e39afb947136f7b1872bae2d684957c26697
+  AlamofireObjectMapper: 2d16585d06177be0116d76de73497e77437798af
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  ObjectMapper: 4eb08a726e9791a93b2632049951b56a7c17e471
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
 
-PODFILE CHECKSUM: 33f88dc101b30576cc13da8b14f7ea9e4aaf96c7
+PODFILE CHECKSUM: d8acbfae48cf3809bf78f0f2af55f21d3092ecb0
 
 COCOAPODS: 1.0.1
