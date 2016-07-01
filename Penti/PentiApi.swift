@@ -54,20 +54,22 @@ class PentiApi {
   
   private func parseHTML(html: String) -> [FeedItem]? {
     guard let doc = Kanna.HTML(html: html, encoding: StringEncodingGBK) else { return nil }
-    let pattern = "【\\w+(\\d{8})】.*"
+    let pattern = "【(\\w+)(\\d{8})】(.*)"
     guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else { return nil }
-    let author = "喷嚏网"
     var feeds:[FeedItem] = []
     for link in doc.css("td li a") {
       guard let href = link["href"] else { continue }
       guard let title = link.text else { continue }
       let textRange = NSRange(location: 0, length: title.characters.count)
       let result = regex.firstMatchInString(title, options: [], range: textRange)
-      if let range = result?.rangeAtIndex(1) {
-        let dateStr = (title as NSString).substringWithRange(range)
-        let item = FeedItem(title: title, url:href, author:author, date:dateStr)
-        feeds.append(item)
-      }
+      guard let authorRange = result?.rangeAtIndex(1) else { continue }
+      guard let dateRange = result?.rangeAtIndex(2) else { continue }
+      guard let titleRange = result?.rangeAtIndex(3) else { continue }
+      let authorStr = (title as NSString).substringWithRange(authorRange)
+      let dateStr = (title as NSString).substringWithRange(dateRange)
+      let titleStr = (title as NSString).substringWithRange(titleRange)
+      let item = FeedItem(title: titleStr, url:href, author:"\(authorStr) \(dateStr)", date:dateStr)
+      feeds.append(item)
     }
     return feeds
   }

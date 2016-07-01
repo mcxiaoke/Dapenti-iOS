@@ -32,26 +32,29 @@ class FeedItem: Mappable, CustomStringConvertible{
   
   static let dateFormatter:NSDateFormatter = {
     let formatter = NSDateFormatter()
-    formatter.dateStyle = .FullStyle
+    formatter.dateStyle = .MediumStyle
     formatter.timeStyle = .NoStyle
     return formatter
   }()
   
+  var id:Int = 0
   var title:String?
   var url:NSURL?
   var author:String?
   var date:NSDate?
+  var visited:Bool = false
   
   var description: String {
-    return "FeedItem(\(title) - \(url) (\(date), \(author)))"
+    return "FeedItem(\(title) - \(url) (\(date), \(author)) \(id))"
   }
   
   required init?(_ map: Map) {
   }
   
   init(title:String, url:String, author:String, date:String){
+    self.id = Int(date) ?? 0
     let url = url.stringByReplacingOccurrencesOfString("more.asp", withString: "readapp2.asp")
-    self.title = title
+    self.title = title.stringByReplacingOccurrencesOfString("【", withString: "").stringByReplacingOccurrencesOfString("】", withString: " - ")
     self.url = NSURL(string: FeedItem.baseURL + url)
     self.author = author
     self.date = FeedItem.dateOnlyFormatter.dateFromString(date)

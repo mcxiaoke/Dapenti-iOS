@@ -47,7 +47,7 @@ class ViewController: UIViewController {
     print("fetchPages page=\(page)")
     self.currentPage = page
     PentiApi.sharedInstance().getPage(page) { (newItems) in
-      print("fetchPages received \(newItems?.first?.title)")
+      print("fetchPages received \(newItems?.first?.id)")
       self.tableView.separatorStyle = .SingleLine
       if let newItems = newItems {
         if page == 1 {
@@ -62,7 +62,6 @@ class ViewController: UIViewController {
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "showDetail" {
-      print("prepareForSegue \(self.tableView.indexPathForSelectedRow)")
       let controller = segue.destinationViewController as! DetailViewController
       controller.item = items[selectedRow]
     }
@@ -83,14 +82,8 @@ extension ViewController: UITableViewDataSource {
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let item = items[indexPath.row]
     let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! FeedItemCell
-    let title = item.title ?? ""
-    let author = item.author ?? ""
-    let date = item.date!
-    let dateStr = FeedItem.dateFormatter.stringFromDate(date)
-    cell.titleLabel?.text = title
-    cell.subtitleLabel?.text = "\(author) \(dateStr)"
+    cell.setContent(items[indexPath.row])
     return cell
   }
 
@@ -101,7 +94,10 @@ extension ViewController: UITableViewDelegate {
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     self.selectedRow = indexPath.row
     print("didSelectRowAtIndexPath \(indexPath.row)")
+    items[indexPath.row].visited = true
+    tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
     self.performSegueWithIdentifier("showDetail", sender: nil)
+    tableView.deselectRowAtIndexPath(indexPath, animated: false)
   }
   
 }
