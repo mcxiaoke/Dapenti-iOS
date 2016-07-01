@@ -15,29 +15,46 @@ class ViewController: UIViewController {
   
   @IBOutlet weak var tableView:UITableView!
   
+  var currentPage = 1
   var items: [FeedItem] = []
   var selectedRow: Int = -1
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    setUpTableView()
+    fetchPages(1)
+  }
+  
+  func setUpTableView(){
     tableView.estimatedRowHeight = 100.0
     tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.separatorStyle = .None
     
-    self.tableView.addPullToRefreshWithActionHandler { 
+    self.tableView.addPullToRefreshWithActionHandler {
+      print("refresh")
       self.fetchPages(1)
       self.tableView.pullToRefreshView.stopAnimating()
     }
+    self.tableView.addInfiniteScrollingWithActionHandler {
+      print("load more")
+      self.fetchPages(self.currentPage+1)
+      self.tableView.infiniteScrollingView.stopAnimating()
+    }
     
-    fetchPages(1)
-
   }
   
   func fetchPages(page: Int){
-    print("fetchPages \(page)")
-    PentiApi.sharedInstance().getPage(page, count: 30) { (feeds) in
-      if let feeds = feeds {
-        print("fetchPages received data")
-        self.items = feeds
+    print("fetchPages page=\(page)")
+    self.currentPage = page
+    PentiApi.sharedInstance().getPage(page) { (newItems) in
+      print("fetchPages received \(newItems?.first)")
+      self.tableView.separatorStyle = .SingleLine
+      if let newItems = newItems {
+        if page == 1 {
+          self.items = newItems
+        }else {
+          self.items += newItems
+        }
         self.tableView.reloadData()
       }
     }
@@ -45,7 +62,7 @@ class ViewController: UIViewController {
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "showDetail" {
-      print("prepareForSegue \(selectedRow)")
+      print("prepareForSegue \(self.tableView.indexPathForSelectedRow)")
       let controller = segue.destinationViewController as! DetailViewController
       controller.item = items[selectedRow]
     }

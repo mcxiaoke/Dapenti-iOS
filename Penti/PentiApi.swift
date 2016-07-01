@@ -10,6 +10,10 @@ import Foundation
 import Alamofire
 import AlamofireObjectMapper
 
+class PentiURL{
+  static let tugua = "http://appb.dapenti.com/index.php?s=/home/api/tugua/p/%d/limit/%d"
+}
+
 class PentiApi {
   
   private static let instance = PentiApi()
@@ -17,11 +21,10 @@ class PentiApi {
   static func sharedInstance() -> PentiApi {
     return instance
   }
-  
-  let tuguaUrlFormat = "http://appb.dapenti.com/index.php?s=/home/api/tugua/p/1/limit/30"
 
-  func getPage(page:Int, count:Int, completionHandler: ([FeedItem]?) -> Void) {
-    let url = NSURL(string: tuguaUrlFormat)!
+  func getPage(page:Int, count:Int = 30, completionHandler: ([FeedItem]?) -> Void) {
+    let url = NSURL(string: String(format: PentiURL.tugua, page, count))!
+    print("getPage url=\(url)")
     Alamofire.request(.GET, url).validate().responseObject { (response: Response<Feeds, NSError>) in
 //      print(response.response)
       let feeds = response.result.value

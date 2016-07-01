@@ -14,6 +14,7 @@ target 'Penti' do
   pod 'PureLayout', '~> 3.0'
   pod 'MBProgressHUD', '~> 0.9.2'
   pod 'SVPullToRefresh', '~> 0.4.1'
+  pod 'SDWebImage', '~> 3.8.1'
 
   target 'PentiTests' do
     inherit! :search_paths
