@@ -13,6 +13,7 @@
 		AA240EF01D2503B400DA1D2B /* Feeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA240EEF1D2503B400DA1D2B /* Feeds.swift */; };
 		AA240EF21D251F8D00DA1D2B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA240EF11D251F8D00DA1D2B /* DetailViewController.swift */; };
 		AA240EF41D25207E00DA1D2B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA240EF31D25207E00DA1D2B /* WebKit.framework */; };
+		AA7A5B691D260D8900B9B270 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7A5B681D260D8900B9B270 /* QuartzCore.framework */; };
 		AAA7CCA91D23C8CD00A9A4F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA7CCA81D23C8CD00A9A4F8 /* AppDelegate.swift */; };
 		AAA7CCAB1D23C8CD00A9A4F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA7CCAA1D23C8CD00A9A4F8 /* ViewController.swift */; };
 		AAA7CCAE1D23C8CD00A9A4F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAA7CCAC1D23C8CD00A9A4F8 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 		AA240EEF1D2503B400DA1D2B /* Feeds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feeds.swift; sourceTree = "<group>"; };
 		AA240EF11D251F8D00DA1D2B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		AA240EF31D25207E00DA1D2B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		AA7A5B681D260D8900B9B270 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AAA7CCA51D23C8CD00A9A4F8 /* Penti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Penti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA7CCA81D23C8CD00A9A4F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAA7CCAA1D23C8CD00A9A4F8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA7A5B691D260D8900B9B270 /* QuartzCore.framework in Frameworks */,
 				AA240EF41D25207E00DA1D2B /* WebKit.framework in Frameworks */,
 				CDC2E26E969854890629BA04 /* Pods_Penti.framework in Frameworks */,
 			);
@@ -91,6 +94,7 @@
 		9878637D2A4F17A6201F3B44 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AA7A5B681D260D8900B9B270 /* QuartzCore.framework */,
 				AA240EF31D25207E00DA1D2B /* WebKit.framework */,
 				C6CEB727175A76D9DF7DC277 /* Pods_Penti.framework */,
 				CF1C920D7AFD2CC6F289C13F /* Pods_PentiTests.framework */,

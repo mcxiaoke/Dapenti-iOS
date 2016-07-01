@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVPullToRefresh
 
 class ViewController: UIViewController {
   
@@ -22,8 +23,20 @@ class ViewController: UIViewController {
     tableView.estimatedRowHeight = 100.0
     tableView.rowHeight = UITableViewAutomaticDimension
     
-    PentiApi.sharedInstance().getPage(1, count: 30) { (feeds) in
+    self.tableView.addPullToRefreshWithActionHandler { 
+      self.fetchPages(1)
+      self.tableView.pullToRefreshView.stopAnimating()
+    }
+    
+    fetchPages(1)
+
+  }
+  
+  func fetchPages(page: Int){
+    print("fetchPages \(page)")
+    PentiApi.sharedInstance().getPage(page, count: 30) { (feeds) in
       if let feeds = feeds {
+        print("fetchPages received data")
         self.items = feeds
         self.tableView.reloadData()
       }

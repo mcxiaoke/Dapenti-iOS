@@ -13,6 +13,7 @@ target 'Penti' do
   pod 'AlamofireObjectMapper', '~> 3.0'
   pod 'PureLayout', '~> 3.0'
   pod 'MBProgressHUD', '~> 0.9.2'
+  pod 'SVPullToRefresh', '~> 0.4.1'
 
   target 'PentiTests' do
     inherit! :search_paths
