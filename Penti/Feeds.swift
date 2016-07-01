@@ -9,6 +9,8 @@
 import Foundation
 import ObjectMapper
 
+let PreferenceKeyVisitedIds = "visited_ids"
+
 class FeedDateTransform: DateFormatterTransform {
   
   init() {
@@ -85,4 +87,18 @@ class Feeds: Mappable {
     code <- map["error"]
     items <- map["data"]
   }
+}
+
+class FeedsPreference{
+  
+
+  func saveVisitedIds(ids:[Int]){
+    NSUserDefaults.standardUserDefaults().setObject(ids, forKey: PreferenceKeyVisitedIds)
+  }
+  
+  func loadVisitedIds() -> [Int]? {
+    return NSUserDefaults.standardUserDefaults().objectForKey(PreferenceKeyVisitedIds) as? [Int]
+  }
+  
+  
 }

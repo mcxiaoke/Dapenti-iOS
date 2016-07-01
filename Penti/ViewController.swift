@@ -22,6 +22,7 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setUpTableView()
+    setUpRecognizers()
     fetchPages(1)
   }
   
@@ -40,7 +41,15 @@ class ViewController: UIViewController {
       self.fetchPages(self.currentPage+1)
       self.tableView.infiniteScrollingView.stopAnimating()
     }
-    
+  }
+  
+  func setUpRecognizers(){
+    let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(navigationBarTap(_:)))
+    self.navigationController?.navigationBar.addGestureRecognizer(tapRecognizer)
+  }
+  
+  func navigationBarTap(recognizer:UIGestureRecognizer){
+    self.tableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
   }
   
   func fetchPages(page: Int){
