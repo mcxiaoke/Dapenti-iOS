@@ -24,7 +24,7 @@ class DetailViewController: UIViewController {
     webView = WKWebView(frame: CGRect.zero)
     self.view.addSubview(webView!)
     webView?.autoPinEdgesToSuperviewEdges()
-    self.title = item?.author ?? ""
+    self.title = "\(item?.id ?? 0)"
     if let url = item?.url {
       webView?.loadRequest(NSURLRequest(URL: url))
     }
