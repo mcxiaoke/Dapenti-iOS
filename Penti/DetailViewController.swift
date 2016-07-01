@@ -25,7 +25,7 @@ class DetailViewController: UIViewController {
     self.view.addSubview(webView!)
     webView?.autoPinEdgesToSuperviewEdges()
     self.title = item?.title ?? ""
-    if let url = item?.link {
+    if let url = item?.url {
         print("viewDidLoad", url)
       webView?.loadRequest(NSURLRequest(URL: url))
     }

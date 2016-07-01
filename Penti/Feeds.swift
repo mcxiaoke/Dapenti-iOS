@@ -9,13 +9,6 @@
 import Foundation
 import ObjectMapper
 
-private let dateFormatter:NSDateFormatter = {
-  let formatter = NSDateFormatter()
-  formatter.locale = NSLocale(localeIdentifier: "en_US")
-  formatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
-  return formatter
-}()
-
 class FeedDateTransform: DateFormatterTransform {
   
   init() {
@@ -24,33 +17,53 @@ class FeedDateTransform: DateFormatterTransform {
     formatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
     super.init(dateFormatter: formatter)
   }
-  
 }
 
-class FeedItem: Mappable{
+class FeedItem: Mappable, CustomStringConvertible{
+  
+  static let baseURL = "http://www.dapenti.com/blog/"
+  
+  static let dateOnlyFormatter:NSDateFormatter = {
+    let formatter = NSDateFormatter()
+    formatter.locale = NSLocale(localeIdentifier: "en_US")
+    formatter.dateFormat = "YYYYMMdd"
+    return formatter
+  }()
+  
+  static let dateFormatter:NSDateFormatter = {
+    let formatter = NSDateFormatter()
+    formatter.dateStyle = .FullStyle
+    formatter.timeStyle = .NoStyle
+    return formatter
+  }()
+  
   var title:String?
-  var link:NSURL?
+  var url:NSURL?
   var author:String?
-  var pubDate:NSDate?
-  var description:String?
-  var thumbUrl:String?
+  var date:NSDate?
+  
+  var description: String {
+    return "FeedItem(\(title) - \(url) (\(date), \(author)))"
+  }
   
   required init?(_ map: Map) {
-//    if map["author"].value() == nil {
-//      return nil
-//    }
-//    if map["pubDate"].value() == nil {
-//      return nil
-//    }
+  }
+  
+  init(title:String, url:String, author:String, date:String){
+    let url = url.stringByReplacingOccurrencesOfString("more.asp", withString: "readapp2.asp")
+    self.title = title
+    self.url = NSURL(string: FeedItem.baseURL + url)
+    self.author = author
+    self.date = FeedItem.dateOnlyFormatter.dateFromString(date)
   }
   
   func mapping(map: Map) {
     title <- map["title"]
-    link <- (map["link"], URLTransform())
+    url <- (map["link"], URLTransform())
     author <- map["author"]
-    pubDate <- (map["pubDate"], FeedDateTransform())
-    description <- map["description"]
-    thumbUrl <- map["imgurl"]
+    date <- (map["pubDate"], FeedDateTransform())
+//    description <- map["description"]
+//    thumbUrl <- map["imgurl"]
   }
   
 }

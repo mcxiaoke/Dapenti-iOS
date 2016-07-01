@@ -7,6 +7,7 @@ PODS:
   - AlamofireObjectMapper (3.0.0):
     - Alamofire (~> 3.2)
     - ObjectMapper (~> 1.0)
+  - Kanna (1.1.0)
   - MBProgressHUD (0.9.2)
   - ObjectMapper (1.3.0)
   - PureLayout (3.0.2)
@@ -20,6 +21,7 @@ DEPENDENCIES:
   - AlamofireImage (~> 2.0)
   - AlamofireNetworkActivityIndicator (~> 1.0)
   - AlamofireObjectMapper (~> 3.0)
+  - Kanna (~> 1.1.0)
   - MBProgressHUD (~> 0.9.2)
   - ObjectMapper (~> 1.3)
   - PureLayout (~> 3.0)
@@ -31,12 +33,13 @@ SPEC CHECKSUMS:
   AlamofireImage: 87408b652e0f5ae5fe364035f15aea8b9b24c77e
   AlamofireNetworkActivityIndicator: 49a6e39afb947136f7b1872bae2d684957c26697
   AlamofireObjectMapper: 2d16585d06177be0116d76de73497e77437798af
+  Kanna: 355ed0193e5d8caf4fd996856b5bc98d586c11b6
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   ObjectMapper: 4eb08a726e9791a93b2632049951b56a7c17e471
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
 
-PODFILE CHECKSUM: 9a411a5db70c6dcd587a9c3fc24fe7f28ebcaf42
+PODFILE CHECKSUM: 4849b620b32d8cbc99cb1e24583db783c103aa68
 
 COCOAPODS: 1.0.1
