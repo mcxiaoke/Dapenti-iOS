@@ -2,7 +2,7 @@
 * @Author: mcxiaoke
 * @Date:   2016-07-04 17:17:43
 * @Last Modified by:   mcxiaoke
-* @Last Modified time: 2016-07-04 17:46:11
+* @Last Modified time: 2016-07-04 18:37:05
 */
 function addCSSRule(sheet, selector, rules, index) {
     if("insertRule" in sheet) {
@@ -48,19 +48,38 @@ function loadFile(fileName, fileType){
         document.head.appendChild(fileRef);
 }
 
+function removeOldStyles(){
+    var styles = document.body.getElementsByTagName("style");
+    if (styles == null || styles == undefined) {
+        console.log("style not found");
+        return;
+    }
+    Array.prototype.forEach.call(styles, function(style, index) {
+        console.log("Removing Style "+index);
+        document.body.removeChild(style);
+    });
+}
+
 function changeStyle(){
-    var bodyStyle = " padding: 8pt; \
-        background: #f6f6f2; \
+    var bodyStyle = " background: #f6f6f2; \ 
+    "
+    var paragraphStyle = " text-align:justify; \
+        font-size: 12px; \
     "
     var imageStyle = " display:block; \
         max-width: 100%; \
         margin: 0 auto; \
-        padding-top:8pt; \
-        padding-bottom:8pt; \
+        padding-top:4pt; \
+        padding-bottom:4pt; \
+    "
+    var linkStyle = " text-decoration: none; \
     "
     var sheet = createStyleSheet()
     addCSSRule(sheet, "body", bodyStyle);
+    addCSSRule(sheet, "p", paragraphStyle);
     addCSSRule(sheet, "img", imageStyle);
+    addCSSRule(sheet, "a", linkStyle);
 }
 
+removeOldStyles();
 changeStyle();

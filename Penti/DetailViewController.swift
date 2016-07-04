@@ -34,8 +34,8 @@ class DetailViewController: UIViewController {
   
   func setUpWebView(){
     let userContentController = WKUserContentController()
-    addStyleScript(userContentController)
     addContentScript(userContentController)
+    addStyleScript(userContentController)
     userContentController.addScriptMessageHandler(self, name: "bridge")
     let configuration = WKWebViewConfiguration()
     configuration.preferences.setValue(true, forKey: "developerExtrasEnabled")
