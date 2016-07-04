@@ -20,6 +20,9 @@
 		AAA7CCB01D23C8CD00A9A4F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA7CCAF1D23C8CD00A9A4F8 /* Assets.xcassets */; };
 		AAA7CCB31D23C8CD00A9A4F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAA7CCB11D23C8CD00A9A4F8 /* LaunchScreen.storyboard */; };
 		AAA7CCBE1D23C8CD00A9A4F8 /* PentiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA7CCBD1D23C8CD00A9A4F8 /* PentiTests.swift */; };
+		AAD72F6F1D2A3F7E00510481 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = AAD72F6E1D2A3F7E00510481 /* content.js */; };
+		AAD72F731D2A42A200510481 /* zepto.min.js in Resources */ = {isa = PBXBuildFile; fileRef = AAD72F721D2A42A200510481 /* zepto.min.js */; };
+		AAD72F7A1D2A613600510481 /* style.js in Resources */ = {isa = PBXBuildFile; fileRef = AAD72F791D2A613600510481 /* style.js */; };
 		CDC2E26E969854890629BA04 /* Pods_Penti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6CEB727175A76D9DF7DC277 /* Pods_Penti.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +54,9 @@
 		AAA7CCB91D23C8CD00A9A4F8 /* PentiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PentiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA7CCBD1D23C8CD00A9A4F8 /* PentiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PentiTests.swift; sourceTree = "<group>"; };
 		AAA7CCBF1D23C8CD00A9A4F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAD72F6E1D2A3F7E00510481 /* content.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = content.js; sourceTree = "<group>"; };
+		AAD72F721D2A42A200510481 /* zepto.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = zepto.min.js; sourceTree = "<group>"; };
+		AAD72F791D2A613600510481 /* style.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = style.js; sourceTree = "<group>"; };
 		BFEBAFDAA945AA905EBCBA8F /* Pods-PentiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PentiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PentiTests/Pods-PentiTests.release.xcconfig"; sourceTree = "<group>"; };
 		C07CE5BD68CFA80647D886B9 /* Pods-PentiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PentiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PentiTests/Pods-PentiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C6CEB727175A76D9DF7DC277 /* Pods_Penti.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Penti.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +155,8 @@
 		AAA7CCA71D23C8CD00A9A4F8 /* Penti */ = {
 			isa = PBXGroup;
 			children = (
+				AAD72F741D2A585500510481 /* Resources */,
+				AAD72F721D2A42A200510481 /* zepto.min.js */,
 				AA240EEC1D24FCB300DA1D2B /* Network */,
 				AA240EE91D24F98200DA1D2B /* Views */,
 				AA240EE61D24F4CB00DA1D2B /* Models */,
@@ -170,6 +178,31 @@
 				AAA7CCBF1D23C8CD00A9A4F8 /* Info.plist */,
 			);
 			path = PentiTests;
+			sourceTree = "<group>";
+		};
+		AAD72F741D2A585500510481 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AAD72F761D2A589800510481 /* css */,
+				AAD72F751D2A589100510481 /* js */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		AAD72F751D2A589100510481 /* js */ = {
+			isa = PBXGroup;
+			children = (
+				AAD72F6E1D2A3F7E00510481 /* content.js */,
+				AAD72F791D2A613600510481 /* style.js */,
+			);
+			name = js;
+			sourceTree = "<group>";
+		};
+		AAD72F761D2A589800510481 /* css */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = css;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,7 +294,10 @@
 			files = (
 				AAA7CCB31D23C8CD00A9A4F8 /* LaunchScreen.storyboard in Resources */,
 				AAA7CCB01D23C8CD00A9A4F8 /* Assets.xcassets in Resources */,
+				AAD72F731D2A42A200510481 /* zepto.min.js in Resources */,
 				AAA7CCAE1D23C8CD00A9A4F8 /* Main.storyboard in Resources */,
+				AAD72F6F1D2A3F7E00510481 /* content.js in Resources */,
+				AAD72F7A1D2A613600510481 /* style.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
