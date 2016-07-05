@@ -9,6 +9,7 @@
 import UIKit
 import WebKit
 import PureLayout
+import MBProgressHUD
 
 class DetailViewController: UIViewController {
 
@@ -22,6 +23,9 @@ class DetailViewController: UIViewController {
     if let url = item?.url {
       webView?.loadRequest(NSURLRequest(URL: url))
     }
+    let hud =  MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+    hud.color = Colors.mainColor
+    hud.animationType = .Fade
   }
   
   func setUpWebView(){
@@ -33,6 +37,7 @@ class DetailViewController: UIViewController {
     configuration.preferences.setValue(true, forKey: "developerExtrasEnabled")
     configuration.userContentController = userContentController
     let webView = WKWebView(frame: CGRect.zero, configuration: configuration)
+    webView.hidden = true
     webView.navigationDelegate = self
     webView.addObserver(self, forKeyPath: "estimatedProgress", options: .New, context: nil)
     self.view.addSubview(webView)
@@ -64,6 +69,8 @@ extension WKUserContentController {
 extension DetailViewController: WKNavigationDelegate {
   func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
     print("didFinishNavigation")
+    MBProgressHUD.hideHUDForView(self.view, animated: true)
+    self.webView?.hidden = false
   }
 }
 
