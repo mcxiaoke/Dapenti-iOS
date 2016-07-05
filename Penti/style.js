@@ -2,8 +2,12 @@
 * @Author: mcxiaoke
 * @Date:   2016-07-04 17:17:43
 * @Last Modified by:   mcxiaoke
-* @Last Modified time: 2016-07-04 18:37:05
+* @Last Modified time: 2016-07-05 13:06:40
 */
+function postMessage(message){
+    window.webkit.messageHandlers.bridge.postMessage(message);
+}
+
 function addCSSRule(sheet, selector, rules, index) {
     if("insertRule" in sheet) {
         sheet.insertRule(selector + "{" + rules + "}", index);
@@ -43,7 +47,6 @@ function loadFile(fileName, fileType){
         fileRef.setAttribute("href", fileName);
     }
     console.log(fileRef.innerHTML);
-    console.log(fileRef.innerHTML);
     if (typeof fileRef!="undefined")
         document.head.appendChild(fileRef);
 }
@@ -51,7 +54,7 @@ function loadFile(fileName, fileType){
 function removeOldStyles(){
     var styles = document.body.getElementsByTagName("style");
     if (styles == null || styles == undefined) {
-        console.log("style not found");
+        console.log("style not found.");
         return;
     }
     Array.prototype.forEach.call(styles, function(style, index) {
@@ -61,25 +64,25 @@ function removeOldStyles(){
 }
 
 function changeStyle(){
-    var bodyStyle = " background: #f6f6f2; \ 
-    "
-    var paragraphStyle = " text-align:justify; \
-        font-size: 12px; \
-    "
-    var imageStyle = " display:block; \
-        max-width: 100%; \
-        margin: 0 auto; \
-        padding-top:4pt; \
-        padding-bottom:4pt; \
-    "
-    var linkStyle = " text-decoration: none; \
-    "
+    var bodyStyle = "background: #f6f6f2;\n"
+        + "font-size: 100%;\n"
+        + "text-align:justify;\n"
+    var imageStyle = "display:block;\n"
+        + "max-width: 100%;\n"
+        + "margin: 0 auto;\n"
+        + "padding-top:4px;\n"
+        + "padding-bottom:4px;\n"
+    var linkStyle = "text-decoration: none;"
     var sheet = createStyleSheet()
     addCSSRule(sheet, "body", bodyStyle);
-    addCSSRule(sheet, "p", paragraphStyle);
     addCSSRule(sheet, "img", imageStyle);
     addCSSRule(sheet, "a", linkStyle);
 }
 
+document.addEventListener("load", function(event) {
+    console.log("All resources finished loading!");
+  });
+
 removeOldStyles();
 changeStyle();
+

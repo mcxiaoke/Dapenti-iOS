@@ -2,13 +2,14 @@
 * @Author: mcxiaoke
 * @Date:   2016-07-04 14:53:51
 * @Last Modified by:   mcxiaoke
-* @Last Modified time: 2016-07-04 18:37:01
+* @Last Modified time: 2016-07-05 13:08:32
 */
 // https://davidwalsh.name/add-rules-stylesheets
 
 function postMessage(message){
     window.webkit.messageHandlers.bridge.postMessage(message);
 }
+
 
 function removeADFrames(){
     var iframes = document.querySelectorAll('iframe');
@@ -32,6 +33,18 @@ function removeComments(){
     document.body.removeChild(comments);
 }
 
+function removeScripts(){
+    var elements = document.getElementsByTagName("script");
+    if (elements == null || elements == undefined) {
+        console.log("scripts not found.");
+        return;
+    }
+    Array.prototype.forEach.call(elements, function(element, index) {
+        console.log("Removing script "+index);
+        element.parentNode.removeChild(element);
+    });
+}
+
 function removeADs(){
     var ads = document.getElementsByClassName("adsbygoogle");
     if (ads == null || ads == undefined) {
@@ -46,6 +59,7 @@ function removeADs(){
 
 adsbygoogle = undefined
 window.adsbygoogle = undefined
+removeScripts();
 removeADs();
 removeADFrames();
 removeComments();
