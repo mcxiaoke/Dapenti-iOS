@@ -65,8 +65,12 @@ class DetailViewController: UIViewController {
     if let url = self.item?.url {
       let activityItems = [url]
       let activities = [TUSafariActivity()]
-      let ac = UIActivityViewController(activityItems: activityItems, applicationActivities: activities)
-      self.presentViewController(ac, animated: true, completion: nil)
+      NSOperationQueue.mainQueue().addOperationWithBlock({ 
+        let ac = UIActivityViewController(activityItems: activityItems,
+          applicationActivities: activities)
+        ac.excludedActivityTypes = [UIActivityTypeAirDrop]
+        self.presentViewController(ac, animated: true, completion: nil)
+      })
     }
   }
 
