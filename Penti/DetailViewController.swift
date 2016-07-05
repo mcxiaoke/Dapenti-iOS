@@ -10,6 +10,7 @@ import UIKit
 import WebKit
 import PureLayout
 import MBProgressHUD
+import TUSafariActivity
 
 class DetailViewController: UIViewController {
 
@@ -23,6 +24,11 @@ class DetailViewController: UIViewController {
     if let url = item?.url {
       webView?.loadRequest(NSURLRequest(URL: url))
     }
+    
+    let actionBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action,
+                                 target: self, action: #selector(showActions(_:)))
+    self.navigationItem.rightBarButtonItem = actionBarButtonItem
+    
     let hud =  MBProgressHUD.showHUDAddedTo(self.view, animated: true)
     hud.color = Colors.mainColor
     hud.animationType = .Fade
@@ -52,6 +58,15 @@ class DetailViewController: UIViewController {
       if webView?.estimatedProgress == 1.0 {
         print("estimatedProgress = 100%")
       }
+    }
+  }
+  
+  func showActions(sender:AnyObject){
+    if let url = self.item?.url {
+      let activityItems = [url]
+      let activities = [TUSafariActivity()]
+      let ac = UIActivityViewController(activityItems: activityItems, applicationActivities: activities)
+      self.presentViewController(ac, animated: true, completion: nil)
     }
   }
 

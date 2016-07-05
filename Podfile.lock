@@ -15,6 +15,7 @@ PODS:
     - SDWebImage/Core (= 3.8.1)
   - SDWebImage/Core (3.8.1)
   - SVPullToRefresh (0.4.1)
+  - TUSafariActivity (1.0.4)
 
 DEPENDENCIES:
   - Alamofire (~> 3.4)
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - PureLayout (~> 3.0)
   - SDWebImage (~> 3.8.1)
   - SVPullToRefresh (~> 0.4.1)
+  - TUSafariActivity (~> 1.0)
 
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
@@ -39,7 +41,8 @@ SPEC CHECKSUMS:
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
+  TUSafariActivity: afc55a00965377939107ce4fdc7f951f62454546
 
-PODFILE CHECKSUM: 4849b620b32d8cbc99cb1e24583db783c103aa68
+PODFILE CHECKSUM: 9b23ce52d85b013cbc17744c954ad779c6781c28
 
 COCOAPODS: 1.0.1

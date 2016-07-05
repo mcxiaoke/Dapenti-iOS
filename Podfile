@@ -16,6 +16,7 @@ target 'Penti' do
   pod 'SVPullToRefresh', '~> 0.4.1'
   pod 'SDWebImage', '~> 3.8.1'
   pod 'Kanna', '~> 1.1.0'
+  pod 'TUSafariActivity', '~> 1.0'
 
   target 'PentiTests' do
     inherit! :search_paths
