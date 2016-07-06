@@ -46,6 +46,7 @@
 		AA240EF11D251F8D00DA1D2B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		AA240EF31D25207E00DA1D2B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		AA7A5B681D260D8900B9B270 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		AA83009A1D2CF6C500818A2B /* Penti.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Penti.entitlements; sourceTree = "<group>"; };
 		AAA7CCA51D23C8CD00A9A4F8 /* Penti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Penti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA7CCA81D23C8CD00A9A4F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAA7CCAA1D23C8CD00A9A4F8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +158,7 @@
 		AAA7CCA71D23C8CD00A9A4F8 /* Penti */ = {
 			isa = PBXGroup;
 			children = (
+				AA83009A1D2CF6C500818A2B /* Penti.entitlements */,
 				AAD72F741D2A585500510481 /* Resources */,
 				AAD72F721D2A42A200510481 /* zepto.min.js */,
 				AA240EEC1D24FCB300DA1D2B /* Network */,
@@ -265,6 +267,14 @@
 					AAA7CCA41D23C8CD00A9A4F8 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 5R8HH5SP77;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					AAA7CCB81D23C8CD00A9A4F8 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -548,6 +558,7 @@
 			baseConfigurationReference = D2A933573E22B0E987D5DF9A /* Pods-Penti.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Penti/Penti.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Penti/Info.plist;
@@ -564,6 +575,7 @@
 			baseConfigurationReference = 69AFBF9E25D68A6FE75DB43C /* Pods-Penti.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Penti/Penti.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Penti/Info.plist;
