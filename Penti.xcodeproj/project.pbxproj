@@ -264,6 +264,7 @@
 				TargetAttributes = {
 					AAA7CCA41D23C8CD00A9A4F8 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 5R8HH5SP77;
 					};
 					AAA7CCB81D23C8CD00A9A4F8 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -547,11 +548,14 @@
 			baseConfigurationReference = D2A933573E22B0E987D5DF9A /* Pods-Penti.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Penti/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.ios.penti;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.penti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -560,11 +564,14 @@
 			baseConfigurationReference = 69AFBF9E25D68A6FE75DB43C /* Pods-Penti.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Penti/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.ios.penti;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcxiaoke.penti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
