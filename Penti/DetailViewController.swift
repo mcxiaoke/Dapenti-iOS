@@ -40,7 +40,6 @@ class DetailViewController: UIViewController {
     userContentController.addJavaScript("content")
     userContentController.addScriptMessageHandler(self, name: "bridge")
     let configuration = WKWebViewConfiguration()
-    configuration.preferences.setValue(true, forKey: "developerExtrasEnabled")
     configuration.userContentController = userContentController
     let webView = WKWebView(frame: CGRect.zero, configuration: configuration)
     webView.hidden = true

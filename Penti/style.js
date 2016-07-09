@@ -64,7 +64,7 @@ function removeOldStyles(){
 }
 
 function changeStyle(){
-    var bodyStyle = "background: #f6f6f2;\n"
+    var bodyStyle = "background: #ffffff;\n"
         + "font-size: 17px;\n"
         + "text-align:justify;\n"
         + "-webkit-text-size-adjust:100% !important;\n"
