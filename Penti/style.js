@@ -65,8 +65,9 @@ function removeOldStyles(){
 
 function changeStyle(){
     var bodyStyle = "background: #f6f6f2;\n"
-        + "font-size: 100%;\n"
+        + "font-size: 17px;\n"
         + "text-align:justify;\n"
+        + "-webkit-text-size-adjust:100% !important;\n"
     var imageStyle = "display:block;\n"
         + "max-width: 100%;\n"
         + "margin: 0 auto;\n"

@@ -25,9 +25,9 @@ class DetailViewController: UIViewController {
       webView?.loadRequest(NSURLRequest(URL: url))
     }
     
-    let item = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action,
+    let rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action,
                                  target: self, action: #selector(showActions(_:)))
-    self.navigationItem.rightBarButtonItem = item
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem
     
     let hud =  MBProgressHUD.showHUDAddedTo(self.view, animated: true)
     hud.color = Colors.mainColor
@@ -65,7 +65,7 @@ class DetailViewController: UIViewController {
     if let url = self.item?.url {
       let activityItems = [url]
       let activities = [TUSafariActivity()]
-      NSOperationQueue.mainQueue().addOperationWithBlock({[unowned self]
+      NSOperationQueue.mainQueue().addOperationWithBlock({
         let ac = UIActivityViewController(activityItems: activityItems,
           applicationActivities: activities)
         ac.excludedActivityTypes = [UIActivityTypeAirDrop]
