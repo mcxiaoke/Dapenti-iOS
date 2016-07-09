@@ -12,9 +12,9 @@ import Alamofire
 import AlamofireObjectMapper
 import Kanna
 
-class PentiURL{
-  static let page = "http://www.dapenti.com/blog/blog.asp?subjectid=70&name=xilei&page=%d"
-  static let api = "http://appb.dapenti.com/index.php?s=/home/api/tugua/p/%d/limit/%d"
+enum PentiURL:String{
+  case web = "http://www.dapenti.com/blog/blog.asp?subjectid=70&name=xilei&page=%d"
+  case api = "http://appb.dapenti.com/index.php?s=/home/api/tugua/p/%d/limit/%d"
 }
 
 let StringEncodingGBK = CFStringConvertEncodingToNSStringEncoding(CFStringEncoding(CFStringEncodings.GB_18030_2000.rawValue))
@@ -28,7 +28,7 @@ class PentiApi {
   }
 
   func getPageByApi(page:Int, count:Int = 30, completionHandler: ([FeedItem]?) -> Void) {
-    let url = NSURL(string: String(format: PentiURL.api, page, count))!
+    let url = NSURL(string: String(format: PentiURL.api.rawValue, page, count))!
     print("getPage url=\(url)")
     Alamofire.request(.GET, url).validate().responseObject { (response: Response<Feeds, NSError>) in
 //      print(response.response)
@@ -38,7 +38,7 @@ class PentiApi {
   }
   
   func getPage(page:Int, completionHandler: ([FeedItem]?) -> Void){
-    let url = NSURL(string: String(format: PentiURL.page, page))!
+    let url = NSURL(string: String(format: PentiURL.web.rawValue, page))!
     print("getPage url=\(url)")
     Alamofire.request(.GET, url).validate().responseData { (response: Response<NSData, NSError>) in
       guard let data = response.result.value else { return }

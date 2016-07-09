@@ -8,6 +8,7 @@
 
 import UIKit
 import SVPullToRefresh
+import MBProgressHUD
 
 class ViewController: UIViewController {
   
@@ -18,6 +19,7 @@ class ViewController: UIViewController {
   var currentPage = 1
   var items: [FeedItem] = []
   var selectedRow: Int = -1
+  var dataInitialized = false
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -53,10 +55,21 @@ class ViewController: UIViewController {
   }
   
   func fetchPages(page: Int){
+    if !dataInitialized {
+      self.tableView.hidden = true
+      let hud =  MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+      hud.color = Colors.mainColor
+      hud.animationType = .Fade
+    }
     print("fetchPages page=\(page)")
     self.currentPage = page
-    PentiApi.sharedInstance().getPage(page) { (newItems) in
+    PentiApi.sharedInstance().getPage(page) {[unowned self] (newItems) in
       print("fetchPages received \(newItems?.first?.id)")
+      if !self.dataInitialized {
+        self.dataInitialized = true
+        MBProgressHUD.hideHUDForView(self.view, animated: true)
+        self.tableView.hidden = false
+      }
       self.tableView.separatorStyle = .SingleLine
       if let newItems = newItems {
         if page == 1 {
