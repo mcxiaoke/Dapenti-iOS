@@ -16,6 +16,7 @@ PODS:
   - SDWebImage/Core (3.8.1)
   - SVPullToRefresh (0.4.1)
   - TUSafariActivity (1.0.4)
+  - UIColor_Hex_Swift (2.1)
 
 DEPENDENCIES:
   - Alamofire (~> 3.4)
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - SDWebImage (~> 3.8.1)
   - SVPullToRefresh (~> 0.4.1)
   - TUSafariActivity (~> 1.0)
+  - UIColor_Hex_Swift (~> 2.1)
 
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
@@ -42,7 +44,8 @@ SPEC CHECKSUMS:
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
   TUSafariActivity: afc55a00965377939107ce4fdc7f951f62454546
+  UIColor_Hex_Swift: e91dc51f6bf252ec7bf74c8704ceedeeb7640c1c
 
-PODFILE CHECKSUM: 9b23ce52d85b013cbc17744c954ad779c6781c28
+PODFILE CHECKSUM: cb004641aeeebac57377e872331ba570dc68c3f3
 
 COCOAPODS: 1.0.1

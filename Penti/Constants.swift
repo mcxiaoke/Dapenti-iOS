@@ -7,7 +7,8 @@
 //
 
 import UIKit
+import UIColor_Hex_Swift
 
 class Colors {
-  static let mainColor = UIColor.purpleColor()
+  static let mainColor = UIColor(rgba:"#F23B1A")
 }

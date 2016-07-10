@@ -17,6 +17,7 @@ target 'Penti' do
   pod 'SDWebImage', '~> 3.8.1'
   pod 'Kanna', '~> 1.1.0'
   pod 'TUSafariActivity', '~> 1.0'
+  pod 'UIColor_Hex_Swift', '~> 2.1'
 
   target 'PentiTests' do
     inherit! :search_paths
