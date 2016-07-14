@@ -1,6 +1,8 @@
 # Introduction
 
-A simple dapenti.com App, written in Swift.
+A simple dapenti.com reader App, written in Swift.
+
+一个简单的阅读喷嚏图卦的App，支持按日期浏览，简洁，无广告。
 
 Download on [App Store](https://itunes.apple.com/cn/app/kan-tu-gua/id1132824499?mt=8)
 
