@@ -2,6 +2,8 @@
 
 A simple dapenti.com App, written in Swift.
 
+Download on [App Store](https://itunes.apple.com/cn/app/kan-tu-gua/id1132824499?mt=8)
+
 ## License
 
 This project is licensed under the terms of the GPLv3 license.
