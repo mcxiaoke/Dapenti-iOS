@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     setUpTableView()
     setUpRecognizers()
-    fetchPages(1)
+    fetchFeedCache()
   }
   
   func setUpTableView(){
@@ -34,12 +34,12 @@ class ViewController: UIViewController {
     tableView.separatorStyle = .None
     
     self.tableView.addPullToRefreshWithActionHandler {
-      print("refresh")
+      NSLog("refresh")
       self.fetchPages(1)
       self.tableView.pullToRefreshView.stopAnimating()
     }
     self.tableView.addInfiniteScrollingWithActionHandler {
-      print("load more")
+      NSLog("load more")
       self.fetchPages(self.currentPage+1)
       self.tableView.infiniteScrollingView.stopAnimating()
     }
@@ -54,6 +54,20 @@ class ViewController: UIViewController {
     self.tableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
   }
   
+  func fetchFeedCache(){
+    PentiApi.sharedInstance().getFeedCache { (newItems) in
+      NSLog("getFeedCache received \(newItems?.first?.id)")
+      if !self.dataInitialized {
+        self.dataInitialized = true
+        if let newItems = newItems {
+          self.items = newItems
+          self.tableView.reloadData()
+        }
+        self.fetchPages(1)
+      }
+    }
+  }
+  
   func fetchPages(page: Int){
     if !dataInitialized {
       self.tableView.hidden = true
@@ -61,10 +75,10 @@ class ViewController: UIViewController {
       hud.color = Colors.mainColor
       hud.animationType = .Fade
     }
-    print("fetchPages page=\(page)")
+    NSLog("fetchPages page=\(page)")
     self.currentPage = page
     PentiApi.sharedInstance().getPage(page) {[unowned self] (newItems) in
-      print("fetchPages received \(newItems?.first?.id)")
+      NSLog("fetchPages received \(newItems?.first?.id)")
       if !self.dataInitialized {
         self.dataInitialized = true
         MBProgressHUD.hideHUDForView(self.view, animated: true)
@@ -115,7 +129,7 @@ extension ViewController: UITableViewDelegate {
 
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     self.selectedRow = indexPath.row
-    print("didSelectRowAtIndexPath \(indexPath.row)")
+    NSLog("didSelectRowAtIndexPath \(indexPath.row)")
     items[indexPath.row].visited = true
     tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
     self.performSegueWithIdentifier("showDetail", sender: nil)

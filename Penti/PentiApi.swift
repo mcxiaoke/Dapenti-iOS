@@ -19,6 +19,8 @@ enum PentiURL:String{
 
 let StringEncodingGBK = CFStringConvertEncodingToNSStringEncoding(CFStringEncoding(CFStringEncodings.GB_18030_2000.rawValue))
 
+let kFeedCacheFileName = "FeedCache.dat"
+
 class PentiApi {
   
   private static let instance = PentiApi()
@@ -26,28 +28,63 @@ class PentiApi {
   static func sharedInstance() -> PentiApi {
     return instance
   }
-
-  func getPageByApi(page:Int, count:Int = 30, completionHandler: ([FeedItem]?) -> Void) {
-    let url = NSURL(string: String(format: PentiURL.api.rawValue, page, count))!
-    print("getPage url=\(url)")
-    Alamofire.request(.GET, url).validate().responseObject { (response: Response<Feeds, NSError>) in
-//      print(response.response)
-      let feeds = response.result.value
-      completionHandler(feeds?.items?.filter { $0.author != nil} )
+  
+  private func getFeedCacheFile() -> NSURL?{
+    let fm = NSFileManager.defaultManager()
+    guard let cacheDir = fm.URLsForDirectory(.CachesDirectory, inDomains: .UserDomainMask).first else {return nil}
+    return cacheDir.URLByAppendingPathComponent(kFeedCacheFileName)
+  }
+  
+  func writeFeedCache(data:NSData){
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+      if let file = self.getFeedCacheFile() {
+        let ret = data.writeToURL(file, atomically: true)
+        NSLog("write feed cache to file, success = \(ret)")
+      }
+    }
+  }
+  
+  func getFeedCache(completionHandler: ([FeedItem]?) -> Void){
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {[unowned self] in
+      if let file = self.getFeedCacheFile() {
+        guard let data = NSData(contentsOfURL: file) else {
+          dispatch_async(dispatch_get_main_queue(), {
+            completionHandler(nil)
+          })
+          return
+        }
+        guard let html = String(data: data, encoding: StringEncodingGBK) else {
+          dispatch_async(dispatch_get_main_queue(), {
+            completionHandler(nil)
+          })
+          return
+        }
+        NSLog("read feed cache from file")
+        let feeds = self.parseHTML(html)
+        dispatch_async(dispatch_get_main_queue(), {
+          completionHandler(feeds)
+        })
+      }else{
+        dispatch_async(dispatch_get_main_queue(), {
+          completionHandler(nil)
+        })
+      }
     }
   }
   
   func getPage(page:Int, completionHandler: ([FeedItem]?) -> Void){
     let url = NSURL(string: String(format: PentiURL.web.rawValue, page))!
-    print("getPage url=\(url)")
-    Alamofire.request(.GET, url).validate().responseData { (response: Response<NSData, NSError>) in
+    NSLog("getPage url=\(url)")
+    Alamofire.request(.GET, url).validate().responseData {[unowned self]
+      (response: Response<NSData, NSError>) in
       guard let data = response.result.value else { return }
       guard let html = String(data: data, encoding: StringEncodingGBK) else { return }
-      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-        let feeds = self.parseHTML(html)
-        dispatch_async(dispatch_get_main_queue(), { 
-          completionHandler(feeds)
-        })
+      if page == 1 {
+        self.writeFeedCache(data)
+      }
+      let feeds = self.parseHTML(html)
+      dispatch_async(dispatch_get_main_queue(), {
+        completionHandler(feeds)
       })
     }
   }

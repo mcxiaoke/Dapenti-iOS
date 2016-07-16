@@ -55,7 +55,7 @@ class DetailViewController: UIViewController {
     guard let keyPath = keyPath else { return }
     if keyPath == "estimatedProgress" && object == webView {
       if webView?.estimatedProgress == 1.0 {
-        print("estimatedProgress = 100%")
+        NSLog("estimatedProgress = 100%")
       }
     }
   }
@@ -86,7 +86,7 @@ extension WKUserContentController {
 
 extension DetailViewController: WKNavigationDelegate {
   func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
-    print("didFinishNavigation")
+    NSLog("didFinishNavigation")
     MBProgressHUD.hideHUDForView(self.view, animated: true)
     self.webView?.hidden = false
   }
