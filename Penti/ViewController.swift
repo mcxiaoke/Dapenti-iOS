@@ -17,15 +17,28 @@ class ViewController: UIViewController {
   @IBOutlet weak var tableView:UITableView!
   
   var currentPage = 1
-  var items: [FeedItem] = []
+  var items = [FeedItem]()
   var selectedRow: Int = -1
   var dataInitialized = false
+  
+  override func viewDidDisappear(animated: Bool) {
+    FeedsPreference.saveVisitedIds(FeedItem.visited)
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
     setUpTableView()
     setUpRecognizers()
     fetchFeedCache()
+    
+    FeedsPreference.handleFirstLaunch()
+    FeedItem.loadVisitedIds()
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(storeDidChange(_:)), name: NSUbiquitousKeyValueStoreDidChangeExternallyNotification, object: [NSUbiquitousKeyValueStore.defaultStore()])
+  }
+  
+  func storeDidChange(notification:NSNotification){
+    NSLog("storeDidChange \(notification)")
+    FeedsPreference.mergeStoreVisitedIds()
   }
   
   func setUpTableView(){
@@ -60,6 +73,7 @@ class ViewController: UIViewController {
       if !self.dataInitialized {
         self.dataInitialized = true
         if let newItems = newItems {
+          FeedItem.loadVisitedIds()
           self.items = newItems
           self.tableView.reloadData()
         }
@@ -130,7 +144,7 @@ extension ViewController: UITableViewDelegate {
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     self.selectedRow = indexPath.row
     NSLog("didSelectRowAtIndexPath \(indexPath.row)")
-    items[indexPath.row].visited = true
+    FeedItem.addVisitedId( items[indexPath.row].id)
     tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
     self.performSegueWithIdentifier("showDetail", sender: nil)
     tableView.deselectRowAtIndexPath(indexPath, animated: false)

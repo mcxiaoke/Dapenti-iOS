@@ -32,7 +32,7 @@ class FeedItemCell: UITableViewCell {
     paragraphStyle.lineSpacing = 6.0
     attributeString.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSRange(location: 0, length: (title as NSString).length))
     titleLabel.attributedText = attributeString
-    titleLabel.font = item.visited ? UIFont.systemFontOfSize(17, weight: UIFontWeightRegular)
+    titleLabel.font = FeedItem.isVisited(item.id) ? UIFont.systemFontOfSize(17, weight: UIFontWeightRegular)
       : UIFont.systemFontOfSize(17, weight: UIFontWeightMedium)
     authorLabel.text = author
     dateLabel.text = dateStr
