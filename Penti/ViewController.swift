@@ -27,13 +27,12 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    setUpTableView()
-    setUpRecognizers()
-    fetchFeedCache()
-    
     FeedsPreference.handleFirstLaunch()
     FeedItem.loadVisitedIds()
     NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(storeDidChange(_:)), name: NSUbiquitousKeyValueStoreDidChangeExternallyNotification, object: [NSUbiquitousKeyValueStore.defaultStore()])
+    setUpTableView()
+    setUpRecognizers()
+    fetchFeedCache()
   }
   
   func storeDidChange(notification:NSNotification){
