@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    Bugly.startWithAppId("5d613bb9ee")
     NSUbiquitousKeyValueStore.defaultStore().synchronize()
     return true
   }
