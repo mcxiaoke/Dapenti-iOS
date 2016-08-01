@@ -18,7 +18,7 @@ target 'Penti' do
   pod 'Kanna', '~> 1.1.0'
   pod 'TUSafariActivity', '~> 1.0'
   pod 'UIColor_Hex_Swift', '~> 2.1'
-  
+  pod 'SwiftyStoreKit', '~> 0.3.0'
   pod 'Bugly'
 
   target 'PentiTests' do

@@ -16,6 +16,7 @@ PODS:
     - SDWebImage/Core (= 3.8.1)
   - SDWebImage/Core (3.8.1)
   - SVPullToRefresh (0.4.1)
+  - SwiftyStoreKit (0.3.0)
   - TUSafariActivity (1.0.4)
   - UIColor_Hex_Swift (2.1)
 
@@ -31,6 +32,7 @@ DEPENDENCIES:
   - PureLayout (~> 3.0)
   - SDWebImage (~> 3.8.1)
   - SVPullToRefresh (~> 0.4.1)
+  - SwiftyStoreKit (~> 0.3.0)
   - TUSafariActivity (~> 1.0)
   - UIColor_Hex_Swift (~> 2.1)
 
@@ -46,9 +48,10 @@ SPEC CHECKSUMS:
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
+  SwiftyStoreKit: 6df86a58380d591d06f204eaee92bfaf39704627
   TUSafariActivity: afc55a00965377939107ce4fdc7f951f62454546
   UIColor_Hex_Swift: e91dc51f6bf252ec7bf74c8704ceedeeb7640c1c
 
-PODFILE CHECKSUM: ca049de3e4a8612910805393583b53f283810591
+PODFILE CHECKSUM: cbfb4a691d90cb0dba1ec02de6575c8ae25116e1
 
 COCOAPODS: 1.0.1

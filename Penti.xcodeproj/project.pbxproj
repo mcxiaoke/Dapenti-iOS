@@ -14,6 +14,7 @@
 		AA240EF01D2503B400DA1D2B /* Feeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA240EEF1D2503B400DA1D2B /* Feeds.swift */; };
 		AA240EF21D251F8D00DA1D2B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA240EF11D251F8D00DA1D2B /* DetailViewController.swift */; };
 		AA240EF41D25207E00DA1D2B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA240EF31D25207E00DA1D2B /* WebKit.framework */; };
+		AA483BEB1D4F4E3D003D1A46 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA483BEA1D4F4E3D003D1A46 /* StoreKit.framework */; };
 		AA7A5B691D260D8900B9B270 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7A5B681D260D8900B9B270 /* QuartzCore.framework */; };
 		AAA7CCA91D23C8CD00A9A4F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA7CCA81D23C8CD00A9A4F8 /* AppDelegate.swift */; };
 		AAA7CCAB1D23C8CD00A9A4F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA7CCAA1D23C8CD00A9A4F8 /* ViewController.swift */; };
@@ -45,6 +46,7 @@
 		AA240EEF1D2503B400DA1D2B /* Feeds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feeds.swift; sourceTree = "<group>"; };
 		AA240EF11D251F8D00DA1D2B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		AA240EF31D25207E00DA1D2B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		AA483BEA1D4F4E3D003D1A46 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		AA7A5B681D260D8900B9B270 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AA8077571D2E33D700F1B88E /* Penti-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Penti-Bridging-Header.h"; sourceTree = "<group>"; };
 		AA83009A1D2CF6C500818A2B /* Penti.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Penti.entitlements; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA483BEB1D4F4E3D003D1A46 /* StoreKit.framework in Frameworks */,
 				AA7A5B691D260D8900B9B270 /* QuartzCore.framework in Frameworks */,
 				AA240EF41D25207E00DA1D2B /* WebKit.framework in Frameworks */,
 				CDC2E26E969854890629BA04 /* Pods_Penti.framework in Frameworks */,
@@ -104,6 +107,7 @@
 		9878637D2A4F17A6201F3B44 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AA483BEA1D4F4E3D003D1A46 /* StoreKit.framework */,
 				AA7A5B681D260D8900B9B270 /* QuartzCore.framework */,
 				AA240EF31D25207E00DA1D2B /* WebKit.framework */,
 				C6CEB727175A76D9DF7DC277 /* Pods_Penti.framework */,
