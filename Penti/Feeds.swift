@@ -15,8 +15,8 @@ let PreferenceKeyLauchedBefore = "launch_before"
 class FeedDateTransform: DateFormatterTransform {
   
   init() {
-    let formatter = NSDateFormatter()
-    formatter.locale = NSLocale(localeIdentifier: "en_US")
+    let formatter = DateFormatter()
+    formatter.locale = Locale(identifier: "en_US")
     formatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
     super.init(dateFormatter: formatter)
   }
@@ -28,52 +28,52 @@ class FeedItem: Mappable, CustomStringConvertible{
   
   static let baseURL = "http://www.dapenti.com/blog/"
   
-  static let dateOnlyFormatter:NSDateFormatter = {
-    let formatter = NSDateFormatter()
-    formatter.locale = NSLocale(localeIdentifier: "en_US")
+  static let dateOnlyFormatter:DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.locale = Locale(identifier: "en_US")
     formatter.dateFormat = "YYYYMMdd"
     return formatter
   }()
   
-  static let dateFormatter:NSDateFormatter = {
-    let formatter = NSDateFormatter()
-    formatter.dateStyle = .MediumStyle
-    formatter.timeStyle = .NoStyle
+  static let dateFormatter:DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .medium
+    formatter.timeStyle = .none
     return formatter
   }()
   
-  static func isVisited(id:Int) -> Bool {
+  static func isVisited(_ id:Int) -> Bool {
     return visited.contains(id)
   }
   
-  static func addVisitedId(id:Int){
+  static func addVisitedId(_ id:Int){
     visited.insert(id)
   }
   
   static func loadVisitedIds(){
-    visited = FeedsPreference.loadVisitedIds() ?? Set<Int>()
+    visited = FeedsPreference.loadVisitedIds() 
   }
   
   var id:Int = 0
   var title:String?
-  var url:NSURL?
+  var url:URL?
   var author:String?
-  var date:NSDate?
+  var date:Date?
   
   var description: String {
-    return "FeedItem(\(title) - \(url) (\(date), \(author)) \(id))"
+    return "FeedItem(\(String(describing: title)) - \(String(describing: url)) (\(String(describing: date)), \(String(describing: author))) \(id))"
   }
   
-  required init?(_ map: Map) {
+  required init?(map: Map) {
   }
   
   init(title:String, url:String, author:String, date:String){
     self.id = Int(date) ?? 0
-    let url = url.stringByReplacingOccurrencesOfString("more.asp", withString: "readapp2.asp")
-    self.title = title.stringByReplacingOccurrencesOfString("【", withString: "").stringByReplacingOccurrencesOfString("】", withString: " - ")
-    self.url = NSURL(string: FeedItem.baseURL + url)
+    let url = url.replacingOccurrences(of: "more.asp", with: "readapp2.asp")
+    self.title = title.replacingOccurrences(of: "【", with: "").replacingOccurrences(of: "】", with: " - ")
+    self.url = URL(string: FeedItem.baseURL + url)
     self.author = author
-    self.date = FeedItem.dateOnlyFormatter.dateFromString(date)
+    self.date = FeedItem.dateOnlyFormatter.date(from: date)
   }
   
   func mapping(map: Map) {
@@ -92,7 +92,7 @@ class Feeds: Mappable {
   var code:Int?
   var items:[FeedItem]?
   
-  required init?(_ map: Map) {
+  required init?(map: Map) {
     //
   }
   
@@ -106,39 +106,39 @@ class Feeds: Mappable {
 class FeedsPreference{
   
   class func handleFirstLaunch(){
-    let defaults = NSUserDefaults.standardUserDefaults()
-    let launchedBefore = defaults.boolForKey(PreferenceKeyLauchedBefore)
+    let defaults = UserDefaults.standard
+    let launchedBefore = defaults.bool(forKey: PreferenceKeyLauchedBefore)
     if !launchedBefore {
       NSLog("handle first launch")
       mergeStoreVisitedIds()
-      defaults.setBool(true, forKey: PreferenceKeyLauchedBefore)
+      defaults.set(true, forKey: PreferenceKeyLauchedBefore)
     }
   }
   
   class func mergeStoreVisitedIds(){
-    let store = NSUbiquitousKeyValueStore.defaultStore()
-    guard let numbers = store.objectForKey(PreferenceKeyVisitedIds) as? [NSNumber] else { return }
-    let ids = Set<Int>(numbers.map{$0.longValue})
-    let localIds = loadVisitedIds() ?? Set<Int>()
+    let store = NSUbiquitousKeyValueStore.default()
+    guard let numbers = store.object(forKey: PreferenceKeyVisitedIds) as? [NSNumber] else { return }
+    let ids = Set<Int>(numbers.map{$0.intValue})
+    let localIds = loadVisitedIds() 
     let mergedIds = ids.union(localIds)
     NSLog("merge storage visited ids = \(mergedIds)")
     saveVisitedIds(mergedIds)
   }
   
 
-  class func saveVisitedIds(ids:Set<Int>){
+  class func saveVisitedIds(_ ids:Set<Int>){
     NSLog("save visited ids = \(ids)")
-    let numbers = ids.map{ NSNumber(long:$0) }
-    NSUserDefaults.standardUserDefaults().setObject(numbers, forKey: PreferenceKeyVisitedIds)
-    let store = NSUbiquitousKeyValueStore.defaultStore()
-    store.setObject(numbers, forKey: PreferenceKeyVisitedIds)
+    let numbers = ids.map{ NSNumber(value: $0 as Int) }
+    UserDefaults.standard.set(numbers, forKey: PreferenceKeyVisitedIds)
+    let store = NSUbiquitousKeyValueStore.default()
+    store.set(numbers, forKey: PreferenceKeyVisitedIds)
     store.synchronize()
   }
   
   class func loadVisitedIds() -> Set<Int> {
-    guard let numbers =  NSUserDefaults.standardUserDefaults().objectForKey(PreferenceKeyVisitedIds) as? [NSNumber] else { return Set<Int>() }
+    guard let numbers =  UserDefaults.standard.object(forKey: PreferenceKeyVisitedIds) as? [NSNumber] else { return Set<Int>() }
     NSLog("load visited ids = \(numbers)")
-    return Set<Int>(numbers.map{ $0.longValue })
+    return Set<Int>(numbers.map{ $0.intValue })
   }
   
   

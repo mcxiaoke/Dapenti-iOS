@@ -21,7 +21,7 @@ class ViewController: UIViewController {
   var selectedRow: Int = -1
   var dataInitialized = false
   
-  override func viewDidDisappear(animated: Bool) {
+  override func viewDidDisappear(_ animated: Bool) {
     FeedsPreference.saveVisitedIds(FeedItem.visited)
   }
 
@@ -29,13 +29,13 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     FeedsPreference.handleFirstLaunch()
     FeedItem.loadVisitedIds()
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(storeDidChange(_:)), name: NSUbiquitousKeyValueStoreDidChangeExternallyNotification, object: [NSUbiquitousKeyValueStore.defaultStore()])
+    NotificationCenter.default.addObserver(self, selector: #selector(storeDidChange(_:)), name: NSUbiquitousKeyValueStore.didChangeExternallyNotification, object: [NSUbiquitousKeyValueStore.default()])
     setUpTableView()
     setUpRecognizers()
     fetchFeedCache()
   }
   
-  func storeDidChange(notification:NSNotification){
+  func storeDidChange(_ notification:Notification){
     NSLog("storeDidChange \(notification)")
     FeedsPreference.mergeStoreVisitedIds()
   }
@@ -43,14 +43,14 @@ class ViewController: UIViewController {
   func setUpTableView(){
     tableView.estimatedRowHeight = 100.0
     tableView.rowHeight = UITableViewAutomaticDimension
-    tableView.separatorStyle = .None
+    tableView.separatorStyle = .none
     
-    self.tableView.addPullToRefreshWithActionHandler {
+    self.tableView.addPullToRefresh {
       NSLog("refresh")
       self.fetchPages(1)
       self.tableView.pullToRefreshView.stopAnimating()
     }
-    self.tableView.addInfiniteScrollingWithActionHandler {
+    self.tableView.addInfiniteScrolling {
       NSLog("load more")
       self.fetchPages(self.currentPage+1)
       self.tableView.infiniteScrollingView.stopAnimating()
@@ -62,13 +62,13 @@ class ViewController: UIViewController {
 //    self.navigationController?.navigationBar.addGestureRecognizer(tapRecognizer)
   }
   
-  func navigationBarTap(recognizer:UIGestureRecognizer){
+  func navigationBarTap(_ recognizer:UIGestureRecognizer){
     self.tableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
   }
   
   func fetchFeedCache(){
     PentiApi.sharedInstance().getFeedCache { (newItems) in
-      NSLog("getFeedCache received \(newItems?.first?.id)")
+      NSLog("getFeedCache received \(String(describing: newItems?.first?.id))")
       if !self.dataInitialized {
         self.dataInitialized = true
         if let newItems = newItems {
@@ -81,23 +81,23 @@ class ViewController: UIViewController {
     }
   }
   
-  func fetchPages(page: Int){
+  func fetchPages(_ page: Int){
     if !dataInitialized {
-      self.tableView.hidden = true
-      let hud =  MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-      hud.color = Colors.mainColor
-      hud.animationType = .Fade
+      self.tableView.isHidden = true
+      let hud =  MBProgressHUD.showAdded(to: self.view, animated: true)
+      hud.bezelView.color = Colors.mainColor
+      hud.animationType = .fade
     }
     NSLog("fetchPages page=\(page)")
     self.currentPage = page
     PentiApi.sharedInstance().getPage(page) {[unowned self] (newItems) in
-      NSLog("fetchPages received \(newItems?.first?.id)")
+      NSLog("fetchPages received \(String(describing: newItems?.first?.id))")
       if !self.dataInitialized {
         self.dataInitialized = true
-        MBProgressHUD.hideHUDForView(self.view, animated: true)
-        self.tableView.hidden = false
+        MBProgressHUD.hide(for: self.view, animated: true)
+        self.tableView.isHidden = false
       }
-      self.tableView.separatorStyle = .SingleLine
+      self.tableView.separatorStyle = .singleLine
       if let newItems = newItems {
         if page == 1 {
           self.items = newItems
@@ -109,9 +109,9 @@ class ViewController: UIViewController {
     }
   }
   
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "showDetail" {
-      let controller = segue.destinationViewController as! DetailViewController
+      let controller = segue.destination as! DetailViewController
       controller.item = items[selectedRow]
     }
   }
@@ -122,16 +122,16 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
   
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return items.count
   }
   
-  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
   
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! FeedItemCell
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! FeedItemCell
     cell.setContent(items[indexPath.row])
     return cell
   }
@@ -140,13 +140,13 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
 
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     self.selectedRow = indexPath.row
     NSLog("didSelectRowAtIndexPath \(indexPath.row)")
     FeedItem.addVisitedId( items[indexPath.row].id)
-    tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
-    self.performSegueWithIdentifier("showDetail", sender: nil)
-    tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    tableView.reloadRows(at: [indexPath], with: .none)
+    self.performSegue(withIdentifier: "showDetail", sender: nil)
+    tableView.deselectRow(at: indexPath, animated: false)
   }
   
 }

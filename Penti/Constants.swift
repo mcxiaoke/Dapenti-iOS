@@ -10,5 +10,5 @@ import UIKit
 import UIColor_Hex_Swift
 
 class Colors {
-  static let mainColor = UIColor(rgba:"#F23B1A")
+  static let mainColor = UIColor("#F23B1A")
 }

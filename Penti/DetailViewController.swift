@@ -22,35 +22,35 @@ class DetailViewController: UIViewController {
     setUpWebView()
     self.title = "\(item?.id ?? 0)"
     if let url = item?.url {
-      webView?.loadRequest(NSURLRequest(URL: url))
+      webView?.load(URLRequest(url: url as URL))
     }
     
-    let rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action,
+    let rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.action,
                                  target: self, action: #selector(showActions(_:)))
     self.navigationItem.rightBarButtonItem = rightBarButtonItem
     
-    let hud =  MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-    hud.color = Colors.mainColor
-    hud.animationType = .Fade
+    let hud =  MBProgressHUD.showAdded(to: self.view, animated: true)
+    hud.bezelView.color = Colors.mainColor
+    hud.animationType = .fade
   }
   
   func setUpWebView(){
     let userContentController = WKUserContentController()
     userContentController.addJavaScript("style")
     userContentController.addJavaScript("content")
-    userContentController.addScriptMessageHandler(self, name: "bridge")
+    userContentController.add(self, name: "bridge")
     let configuration = WKWebViewConfiguration()
     configuration.userContentController = userContentController
     let webView = WKWebView(frame: CGRect.zero, configuration: configuration)
-    webView.hidden = true
+    webView.isHidden = true
     webView.navigationDelegate = self
-    webView.addObserver(self, forKeyPath: "estimatedProgress", options: .New, context: nil)
+    webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
     self.view.addSubview(webView)
     webView.autoPinEdgesToSuperviewEdges()
     self.webView = webView
   }
   
-  override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+  override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
     guard let object = object as? WKWebView else { return }
     guard let keyPath = keyPath else { return }
     if keyPath == "estimatedProgress" && object == webView {
@@ -60,15 +60,15 @@ class DetailViewController: UIViewController {
     }
   }
   
-  func showActions(sender:AnyObject){
+  func showActions(_ sender:AnyObject){
     if let url = self.item?.url {
       let activityItems = [url]
       let activities = [TUSafariActivity()]
-      NSOperationQueue.mainQueue().addOperationWithBlock({
+      OperationQueue.main.addOperation({
         let ac = UIActivityViewController(activityItems: activityItems,
           applicationActivities: activities)
-        ac.excludedActivityTypes = [UIActivityTypeAirDrop]
-        self.presentViewController(ac, animated: true, completion: nil)
+        ac.excludedActivityTypes = [UIActivityType.airDrop]
+        self.present(ac, animated: true, completion: nil)
       })
     }
   }
@@ -76,24 +76,24 @@ class DetailViewController: UIViewController {
 }
 
 extension WKUserContentController {
-  func addJavaScript(fileName: String){
-    let jsPath = NSBundle.mainBundle().pathForResource(fileName, ofType: "js")
-    let jsSource = try! String(contentsOfFile: jsPath!, encoding: NSUTF8StringEncoding)
-    let userScript = WKUserScript(source: jsSource, injectionTime: .AtDocumentEnd, forMainFrameOnly: true)
+  func addJavaScript(_ fileName: String){
+    let jsPath = Bundle.main.path(forResource: fileName, ofType: "js")
+    let jsSource = try! String(contentsOfFile: jsPath!, encoding: String.Encoding.utf8)
+    let userScript = WKUserScript(source: jsSource, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
     addUserScript(userScript)
   }
 }
 
 extension DetailViewController: WKNavigationDelegate {
-  func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
+  func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
     NSLog("didFinishNavigation")
-    MBProgressHUD.hideHUDForView(self.view, animated: true)
-    self.webView?.hidden = false
+    MBProgressHUD.hide(for: self.view, animated: true)
+    self.webView?.isHidden = false
   }
 }
 
 extension DetailViewController: WKScriptMessageHandler {
-  func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
+  func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
     print(message.body)
   }
 }

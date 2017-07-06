@@ -23,74 +23,73 @@ let kFeedCacheFileName = "FeedCache.dat"
 
 class PentiApi {
   
-  private static let instance = PentiApi()
+  fileprivate static let instance = PentiApi()
   
   static func sharedInstance() -> PentiApi {
     return instance
   }
   
-  private func getFeedCacheFile() -> NSURL?{
-    let fm = NSFileManager.defaultManager()
-    guard let cacheDir = fm.URLsForDirectory(.CachesDirectory, inDomains: .UserDomainMask).first else {return nil}
-    return cacheDir.URLByAppendingPathComponent(kFeedCacheFileName)
+  fileprivate func getFeedCacheFile() -> URL?{
+    let fm = FileManager.default
+    guard let cacheDir = fm.urls(for: .cachesDirectory, in: .userDomainMask).first else {return nil}
+    return cacheDir.appendingPathComponent(kFeedCacheFileName)
   }
   
-  func writeFeedCache(data:NSData){
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+  func writeFeedCache(_ data:Data){
+    DispatchQueue.global().async {
       if let file = self.getFeedCacheFile() {
-        let ret = data.writeToURL(file, atomically: true)
+        let ret = (try? data.write(to: file, options: [.atomic])) != nil
         NSLog("write feed cache to file, success = \(ret)")
       }
     }
   }
   
-  func getFeedCache(completionHandler: ([FeedItem]?) -> Void){
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {[unowned self] in
+  func getFeedCache(_ completionHandler: @escaping ([FeedItem]?) -> Void){
+    DispatchQueue.global().async {[unowned self] in
       if let file = self.getFeedCacheFile() {
-        guard let data = NSData(contentsOfURL: file) else {
-          dispatch_async(dispatch_get_main_queue(), {
+        guard let data = try? Data(contentsOf: file) else {
+          DispatchQueue.main.async(execute: {
             completionHandler(nil)
           })
           return
         }
-        guard let html = String(data: data, encoding: StringEncodingGBK) else {
-          dispatch_async(dispatch_get_main_queue(), {
+        guard let html = String(data: data, encoding: String.Encoding(rawValue: StringEncodingGBK)) else {
+          DispatchQueue.main.async(execute: {
             completionHandler(nil)
           })
           return
         }
         NSLog("read feed cache from file")
         let feeds = self.parseHTML(html)
-        dispatch_async(dispatch_get_main_queue(), {
+        DispatchQueue.main.async(execute: {
           completionHandler(feeds)
         })
       }else{
-        dispatch_async(dispatch_get_main_queue(), {
+        DispatchQueue.main.async(execute: {
           completionHandler(nil)
         })
       }
     }
   }
   
-  func getPage(page:Int, completionHandler: ([FeedItem]?) -> Void){
-    let url = NSURL(string: String(format: PentiURL.web.rawValue, page))!
+  func getPage(_ page:Int, completionHandler: @escaping ([FeedItem]?) -> Void){
+    let url = URL(string: String(format: PentiURL.web.rawValue, page))!
     NSLog("getPage url=\(url)")
-    Alamofire.request(.GET, url).validate().responseData {[unowned self]
-      (response: Response<NSData, NSError>) in
+    Alamofire.request(url).validate().responseData { response in
       guard let data = response.result.value else { return }
-      guard let html = String(data: data, encoding: StringEncodingGBK) else { return }
+      guard let html = String(data: data, encoding: String.Encoding(rawValue: StringEncodingGBK)) else { return }
       if page == 1 {
         self.writeFeedCache(data)
       }
       let feeds = self.parseHTML(html)
-      dispatch_async(dispatch_get_main_queue(), {
+      DispatchQueue.main.async(execute: {
         completionHandler(feeds)
       })
     }
   }
   
-  private func parseHTML(html: String) -> [FeedItem]? {
-    guard let doc = Kanna.HTML(html: html, encoding: StringEncodingGBK) else { return nil }
+  fileprivate func parseHTML(_ html: String) -> [FeedItem]? {
+    guard let doc = HTML(html: html, encoding: .utf8) else { return nil }
     let pattern = "【(\\w+)(\\d{8})】(.*)"
     guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else { return nil }
     var feeds:[FeedItem] = []
@@ -98,13 +97,13 @@ class PentiApi {
       guard let href = link["href"] else { continue }
       guard let title = link.text else { continue }
       let textRange = NSRange(location: 0, length: title.characters.count)
-      let result = regex.firstMatchInString(title, options: [], range: textRange)
-      guard let authorRange = result?.rangeAtIndex(1) else { continue }
-      guard let dateRange = result?.rangeAtIndex(2) else { continue }
-      guard let titleRange = result?.rangeAtIndex(3) else { continue }
-      let authorStr = (title as NSString).substringWithRange(authorRange)
-      let dateStr = (title as NSString).substringWithRange(dateRange)
-      let titleStr = (title as NSString).substringWithRange(titleRange)
+      let result = regex.firstMatch(in: title, options: [], range: textRange)
+      guard let authorRange = result?.rangeAt(1) else { continue }
+      guard let dateRange = result?.rangeAt(2) else { continue }
+      guard let titleRange = result?.rangeAt(3) else { continue }
+      let authorStr = (title as NSString).substring(with: authorRange)
+      let dateStr = (title as NSString).substring(with: dateRange)
+      let titleStr = (title as NSString).substring(with: titleRange)
       let item = FeedItem(title: titleStr, url:href, author:"\(authorStr) \(dateStr)", date:dateStr)
       feeds.append(item)
     }

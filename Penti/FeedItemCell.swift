@@ -17,23 +17,23 @@ class FeedItemCell: UITableViewCell {
     super.awakeFromNib()
   }
   
-  func setContent(item: FeedItem) {
+  func setContent(_ item: FeedItem) {
     let title = item.title ?? ""
     let author = item.author ?? ""
     let dateStr: String
     if let date = item.date {
-      dateStr = FeedItem.dateFormatter.stringFromDate(date)
+      dateStr = FeedItem.dateFormatter.string(from: date)
     }else {
       dateStr = ""
     }
     let attributeString = NSMutableAttributedString(string: title)
     let paragraphStyle = NSMutableParagraphStyle()
-    paragraphStyle.lineBreakMode = .ByWordWrapping
+    paragraphStyle.lineBreakMode = .byWordWrapping
     paragraphStyle.lineSpacing = 6.0
     attributeString.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSRange(location: 0, length: (title as NSString).length))
     titleLabel.attributedText = attributeString
-    titleLabel.font = FeedItem.isVisited(item.id) ? UIFont.systemFontOfSize(17, weight: UIFontWeightRegular)
-      : UIFont.systemFontOfSize(17, weight: UIFontWeightMedium)
+    titleLabel.font = FeedItem.isVisited(item.id) ? UIFont.systemFont(ofSize: 17, weight: UIFontWeightRegular)
+      : UIFont.systemFont(ofSize: 17, weight: UIFontWeightMedium)
     authorLabel.text = author
     dateLabel.text = dateStr
   }
