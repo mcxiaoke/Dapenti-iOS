@@ -129,7 +129,7 @@
         <!--Navigation Controller-->
         <scene sceneID="8zQ-Qz-4Ux">
             <objects>
-                <navigationController extendedLayoutIncludesOpaqueBars="YES" id="NN4-Gk-zOn" sceneMemberID="viewController">
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="NN4-Gk-zOn" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="FuL-SF-0XB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

@@ -35,6 +35,11 @@ class DetailViewController: UIViewController {
     hud.bezelView.color = UIColor.lightGray
     hud.animationType = .fade
   }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.navigationController?.hidesBarsOnSwipe = false
+    }
   
   func setUpWebView(){
     let ucc = WKUserContentController()
