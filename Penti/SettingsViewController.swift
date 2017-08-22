@@ -8,7 +8,12 @@
 
 import UIKit
 
+class SettingsTableViewCell: UITableViewCell {
+
+}
+
 class SettingsViewController: UITableViewController {
+    
     
     
 }

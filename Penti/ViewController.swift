@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     FeedsPreference.handleFirstLaunch()
     FeedItem.loadVisitedIds()
     NotificationCenter.default.addObserver(self, selector: #selector(storeDidChange(_:)), name: NSUbiquitousKeyValueStore.didChangeExternallyNotification, object: [NSUbiquitousKeyValueStore.default()])
-    setupNavigationBar()
+//    setupNavigationBar()
     setUpTableView()
     setUpRecognizers()
     fetchFeedCache()

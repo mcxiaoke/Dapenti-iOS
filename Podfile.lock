@@ -7,14 +7,14 @@ PODS:
   - AlamofireObjectMapper (4.1.0):
     - Alamofire (~> 4.1)
     - ObjectMapper (~> 2.0)
-  - Bugly (2.3.1)
+  - Bugly (2.4.8)
   - Kanna (2.1.1)
   - MBProgressHUD (1.0.0)
-  - ObjectMapper (2.2.7)
+  - ObjectMapper (2.2.8)
   - PureLayout (3.0.2)
-  - SDWebImage (3.8.1):
-    - SDWebImage/Core (= 3.8.1)
-  - SDWebImage/Core (3.8.1)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
   - SVPullToRefresh (0.4.1)
   - SwiftyStoreKit (0.5.4)
   - TUSafariActivity (1.0.4)
@@ -41,12 +41,12 @@ SPEC CHECKSUMS:
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   AlamofireNetworkActivityIndicator: 81e1630e7cfed22a4e4e82a174c59e651dc4f8ca
   AlamofireObjectMapper: 435adc82f5b367679bd9e71c4974a54efd0b2521
-  Bugly: c8ece2fa5bdcb404abdd0e07131e8129f580d893
+  Bugly: da3c02408c14838d498429320545a8e439392978
   Kanna: 9b4b086c218703f2b94f5b21a466217dd2f9332e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  ObjectMapper: 65abcfd9a61cf7396cbd14a4fb22fddfcc46577e
+  ObjectMapper: 3d571bb5af471c779e1160828cd9ad5c4ef90958
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
-  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
   SwiftyStoreKit: a8b02a708c6e2bf52207836d58afd3738e2f6670
   TUSafariActivity: afc55a00965377939107ce4fdc7f951f62454546
