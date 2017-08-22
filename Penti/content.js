@@ -23,14 +23,17 @@ function removeADFrames(){
     console.log("Removing AD iframes.");
 }
 
-function removeComments(){
-    var comments = document.getElementById("SOHUCS");
-    if (comments == null || comments == undefined) {
-        console.log("comments not found.");
+function removeElementById(eid){
+    var element = document.getElementById(eid);
+    if (element == null || element == undefined) {
         return;
     }
-    console.log("Removing comments.");
-    document.body.removeChild(comments);
+    element.parentNode.removeChild(element);
+//    document.body.removeChild(element);
+}
+
+function removeComments(){
+    removeElementById("SOHUCS");
 }
 
 function removeScripts(){
@@ -45,6 +48,18 @@ function removeScripts(){
     });
 }
 
+function removeHRs(){
+    var elements = document.getElementsByTagName("hr");
+    if (elements == null || elements == undefined) {
+        console.log("hr not found.");
+        return;
+    }
+    Array.prototype.forEach.call(elements, function(element, index) {
+                                 console.log("Removing hr "+index);
+                                 element.parentNode.removeChild(element);
+                                 });
+}
+
 function removeADs(){
     var ads = document.getElementsByClassName("adsbygoogle");
     if (ads == null || ads == undefined) {
@@ -55,6 +70,8 @@ function removeADs(){
         console.log("Removing AD "+index);
         document.body.removeChild(ad);
     });
+    removeElementById("aswift_1_expand");
+    removeElementById("aswift_1_anchor");
 }
 
 adsbygoogle = undefined
@@ -63,4 +80,7 @@ removeScripts();
 removeADs();
 removeADFrames();
 removeComments();
+removeHRs();
+
+
 

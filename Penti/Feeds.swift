@@ -121,13 +121,13 @@ class FeedsPreference{
     let ids = Set<Int>(numbers.map{$0.intValue})
     let localIds = loadVisitedIds() 
     let mergedIds = ids.union(localIds)
-    NSLog("merge storage visited ids = \(mergedIds)")
+//    NSLog("merge storage visited ids = \(mergedIds)")
     saveVisitedIds(mergedIds)
   }
   
 
   class func saveVisitedIds(_ ids:Set<Int>){
-    NSLog("save visited ids = \(ids)")
+//    NSLog("save visited ids = \(ids)")
     let numbers = ids.map{ NSNumber(value: $0 as Int) }
     UserDefaults.standard.set(numbers, forKey: PreferenceKeyVisitedIds)
     let store = NSUbiquitousKeyValueStore.default()
@@ -137,7 +137,7 @@ class FeedsPreference{
   
   class func loadVisitedIds() -> Set<Int> {
     guard let numbers =  UserDefaults.standard.object(forKey: PreferenceKeyVisitedIds) as? [NSNumber] else { return Set<Int>() }
-    NSLog("load visited ids = \(numbers)")
+//    NSLog("load visited ids = \(numbers)")
     return Set<Int>(numbers.map{ $0.intValue })
   }
   

@@ -22,25 +22,27 @@ class DetailViewController: UIViewController {
     setUpWebView()
     self.title = "\(item?.id ?? 0)"
     if let url = item?.url {
+        NSLog("url = \(url)")
       webView?.load(URLRequest(url: url as URL))
     }
     
-    let rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.action,
+    let rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action,
                                  target: self, action: #selector(showActions(_:)))
     self.navigationItem.rightBarButtonItem = rightBarButtonItem
     
     let hud =  MBProgressHUD.showAdded(to: self.view, animated: true)
-    hud.bezelView.color = Colors.mainColor
+    hud.bezelView.color = UIColor.lightGray
     hud.animationType = .fade
   }
   
   func setUpWebView(){
-    let userContentController = WKUserContentController()
-    userContentController.addJavaScript("style")
-    userContentController.addJavaScript("content")
-    userContentController.add(self, name: "bridge")
+    let ucc = WKUserContentController()
+    ucc.addJavaScript("style")
+    ucc.addJavaScript("content")
+    ucc.add(self, name: "bridge")
     let configuration = WKWebViewConfiguration()
-    configuration.userContentController = userContentController
+    configuration.userContentController = ucc
+    configuration.preferences.javaScriptEnabled = false
     let webView = WKWebView(frame: CGRect.zero, configuration: configuration)
     webView.isHidden = true
     webView.navigationDelegate = self
@@ -50,7 +52,10 @@ class DetailViewController: UIViewController {
     self.webView = webView
   }
   
-  override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+  override func observeValue(forKeyPath keyPath: String?,
+                             of object: Any?,
+                             change: [NSKeyValueChangeKey : Any]?,
+                             context: UnsafeMutableRawPointer?) {
     guard let object = object as? WKWebView else { return }
     guard let keyPath = keyPath else { return }
     if keyPath == "estimatedProgress" && object == webView {
@@ -76,24 +81,29 @@ class DetailViewController: UIViewController {
 }
 
 extension WKUserContentController {
-  func addJavaScript(_ fileName: String){
+  func addJavaScript(_ fileName: String, injectionTime: WKUserScriptInjectionTime = .atDocumentEnd){
     let jsPath = Bundle.main.path(forResource: fileName, ofType: "js")
     let jsSource = try! String(contentsOfFile: jsPath!, encoding: String.Encoding.utf8)
-    let userScript = WKUserScript(source: jsSource, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
+    let userScript = WKUserScript(source: jsSource, injectionTime: injectionTime, forMainFrameOnly: false)
     addUserScript(userScript)
   }
 }
 
 extension DetailViewController: WKNavigationDelegate {
+    
   func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
     NSLog("didFinishNavigation")
     MBProgressHUD.hide(for: self.view, animated: true)
     self.webView?.isHidden = false
   }
+    
 }
 
 extension DetailViewController: WKScriptMessageHandler {
-  func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+    
+  func userContentController(_ userContentController: WKUserContentController,
+                             didReceive message: WKScriptMessage) {
     print(message.body)
   }
+    
 }

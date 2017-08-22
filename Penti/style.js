@@ -64,15 +64,19 @@ function removeOldStyles(){
 }
 
 function changeStyle(){
-    var bodyStyle = "background: #ffffff;\n"
-        + "font-size: 17px;\n"
-        + "text-align:justify;\n"
-        + "-webkit-text-size-adjust:100% !important;\n"
+    var bodyStyle = "background: #f7f8f4;\n"
+        + "font-size: 16px;\n"
+        + "font-family: \"Hiragino Sans GB\", \"PingFang SC\", \"Heiti SC\", sans-serif;\n"
+        + "text-align:left;\n"
+        + "text-color: #5b5c5b;\n"
+        + "line-height: 1.5;\n"
+        //+ "margin: 10px;\n"
+        //+ "-webkit-text-size-adjust:100% !important;\n"
     var imageStyle = "display:block;\n"
         + "max-width: 100%;\n"
         + "margin: 0 auto;\n"
-        + "padding-top:4px;\n"
-        + "padding-bottom:4px;\n"
+        + "padding-top:5px;\n"
+        + "padding-bottom:5px;\n"
     var linkStyle = "text-decoration: none;"
     var sheet = createStyleSheet()
     addCSSRule(sheet, "body", bodyStyle);

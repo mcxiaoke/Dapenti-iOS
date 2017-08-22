@@ -17,7 +17,12 @@ enum PentiURL:String{
   case api = "http://appb.dapenti.com/index.php?s=/home/api/tugua/p/%d/limit/%d"
 }
 
-let StringEncodingGBK = CFStringConvertEncodingToNSStringEncoding(CFStringEncoding(CFStringEncodings.GB_18030_2000.rawValue))
+let NSStringEncodingGBK = CFStringConvertEncodingToNSStringEncoding(CFStringEncoding(CFStringEncodings.GB_18030_2000.rawValue))
+let StringEncodingGBK = String.Encoding(rawValue: NSStringEncodingGBK)
+let UserAgentMobile = "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) Version/10.0 Mobile/14G60 Safari/602.1"
+let Headers: HTTPHeaders = [
+    "UserAgent": UserAgentMobile
+]
 
 let kFeedCacheFileName = "FeedCache.dat"
 
@@ -53,7 +58,7 @@ class PentiApi {
           })
           return
         }
-        guard let html = String(data: data, encoding: String.Encoding(rawValue: StringEncodingGBK)) else {
+        guard let html = String(data: data, encoding: StringEncodingGBK) else {
           DispatchQueue.main.async(execute: {
             completionHandler(nil)
           })
@@ -75,9 +80,10 @@ class PentiApi {
   func getPage(_ page:Int, completionHandler: @escaping ([FeedItem]?) -> Void){
     let url = URL(string: String(format: PentiURL.web.rawValue, page))!
     NSLog("getPage url=\(url)")
-    Alamofire.request(url).validate().responseData { response in
+    Alamofire.request(url, headers: Headers).validate().responseData { response in
+      guard response.result.isSuccess else { return }
       guard let data = response.result.value else { return }
-      guard let html = String(data: data, encoding: String.Encoding(rawValue: StringEncodingGBK)) else { return }
+      guard let html = String(data: data, encoding: StringEncodingGBK) else { return }
       if page == 1 {
         self.writeFeedCache(data)
       }
