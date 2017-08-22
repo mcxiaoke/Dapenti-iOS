@@ -129,9 +129,9 @@
         <!--Navigation Controller-->
         <scene sceneID="8zQ-Qz-4Ux">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NN4-Gk-zOn" sceneMemberID="viewController">
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" id="NN4-Gk-zOn" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="FuL-SF-0XB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="FuL-SF-0XB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

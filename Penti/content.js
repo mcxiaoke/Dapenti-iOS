@@ -74,6 +74,17 @@ function removeADs(){
     removeElementById("aswift_1_anchor");
 }
 
+function fixImages() {
+    var images = document.getElementsByTagName("img");
+    Array.prototype.forEach.call(images, function(img, index) {
+                                 console.log("Fix image "+index);
+                                 img.addEventListener("click", function(){
+                                                      console.log("onImageClicked img="+img);
+                                                      postMessage(img.src);
+                                                      });
+                                 });
+}
+
 adsbygoogle = undefined
 window.adsbygoogle = undefined
 removeScripts();
@@ -81,6 +92,5 @@ removeADs();
 removeADFrames();
 removeComments();
 removeHRs();
-
 
 

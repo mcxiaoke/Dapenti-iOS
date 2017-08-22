@@ -29,6 +29,7 @@ class DetailViewController: UIViewController {
     let rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action,
                                  target: self, action: #selector(showActions(_:)))
     self.navigationItem.rightBarButtonItem = rightBarButtonItem
+    self.navigationController?.hidesBarsOnSwipe = true
     
     let hud =  MBProgressHUD.showAdded(to: self.view, animated: true)
     hud.bezelView.color = UIColor.lightGray
@@ -96,6 +97,18 @@ extension DetailViewController: WKNavigationDelegate {
     MBProgressHUD.hide(for: self.view, animated: true)
     self.webView?.isHidden = false
   }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        NSLog("decidePolicyFor \(navigationAction.request)")
+        if navigationAction.navigationType == .linkActivated {
+            if let url = navigationAction.request.url {
+                safariOpen(url)
+            }
+            decisionHandler(.cancel)
+        } else {
+            decisionHandler(.allow)
+        }
+    }
     
 }
 

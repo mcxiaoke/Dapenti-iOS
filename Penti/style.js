@@ -70,7 +70,7 @@ function changeStyle(){
         + "text-align:left;\n"
         + "text-color: #5b5c5b;\n"
         + "line-height: 1.5;\n"
-        //+ "margin: 10px;\n"
+        + "margin: 10px;\n"
         //+ "-webkit-text-size-adjust:100% !important;\n"
     var imageStyle = "display:block;\n"
         + "max-width: 100%;\n"
@@ -84,10 +84,18 @@ function changeStyle(){
     addCSSRule(sheet, "a", linkStyle);
 }
 
+function fixMeta() {
+    var meta = document.createElement('meta');
+    meta.setAttribute('name', 'viewport');
+    meta.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+    document.getElementsByTagName('head')[0].appendChild(meta);
+}
+
 document.addEventListener("load", function(event) {
-    console.log("All resources finished loading!");
+    postMessage("All resources finished loading!");
   });
 
+fixMeta();
 removeOldStyles();
 changeStyle();
 
