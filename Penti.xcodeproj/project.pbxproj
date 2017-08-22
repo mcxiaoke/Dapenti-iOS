@@ -10,6 +10,7 @@
 		52D11472533E9E9641E5AD8E /* Pods_PentiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF1C920D7AFD2CC6F289C13F /* Pods_PentiTests.framework */; };
 		AA1658961D2B84250020F6BC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1658951D2B84250020F6BC /* Constants.swift */; };
 		AA1A1E161F4C188E00741B7E /* Browser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1A1E151F4C188E00741B7E /* Browser.swift */; };
+		AA1A1E181F4C20B100741B7E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1A1E171F4C20B100741B7E /* SettingsViewController.swift */; };
 		AA240EEB1D24F99F00DA1D2B /* FeedItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA240EEA1D24F99F00DA1D2B /* FeedItemCell.swift */; };
 		AA240EEE1D24FCCB00DA1D2B /* PentiApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA240EED1D24FCCB00DA1D2B /* PentiApi.swift */; };
 		AA240EF01D2503B400DA1D2B /* Feeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA240EEF1D2503B400DA1D2B /* Feeds.swift */; };
@@ -43,6 +44,7 @@
 		69AFBF9E25D68A6FE75DB43C /* Pods-Penti.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Penti.release.xcconfig"; path = "Pods/Target Support Files/Pods-Penti/Pods-Penti.release.xcconfig"; sourceTree = "<group>"; };
 		AA1658951D2B84250020F6BC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AA1A1E151F4C188E00741B7E /* Browser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Browser.swift; sourceTree = "<group>"; };
+		AA1A1E171F4C20B100741B7E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AA240EEA1D24F99F00DA1D2B /* FeedItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemCell.swift; sourceTree = "<group>"; };
 		AA240EED1D24FCCB00DA1D2B /* PentiApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PentiApi.swift; sourceTree = "<group>"; };
 		AA240EEF1D2503B400DA1D2B /* Feeds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feeds.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				AA1658951D2B84250020F6BC /* Constants.swift */,
 				AA8077571D2E33D700F1B88E /* Penti-Bridging-Header.h */,
 				AA1A1E151F4C188E00741B7E /* Browser.swift */,
+				AA1A1E171F4C20B100741B7E /* SettingsViewController.swift */,
 			);
 			path = Penti;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				AA1658961D2B84250020F6BC /* Constants.swift in Sources */,
 				AAA7CCA91D23C8CD00A9A4F8 /* AppDelegate.swift in Sources */,
 				AA240EF01D2503B400DA1D2B /* Feeds.swift in Sources */,
+				AA1A1E181F4C20B100741B7E /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

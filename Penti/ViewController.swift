@@ -30,6 +30,7 @@ class ViewController: UIViewController {
     FeedsPreference.handleFirstLaunch()
     FeedItem.loadVisitedIds()
     NotificationCenter.default.addObserver(self, selector: #selector(storeDidChange(_:)), name: NSUbiquitousKeyValueStore.didChangeExternallyNotification, object: [NSUbiquitousKeyValueStore.default()])
+    setupNavigationBar()
     setUpTableView()
     setUpRecognizers()
     fetchFeedCache()
@@ -39,6 +40,16 @@ class ViewController: UIViewController {
     NSLog("storeDidChange \(notification)")
     FeedsPreference.mergeStoreVisitedIds()
   }
+    
+    func setupNavigationBar() {
+        let image = UIImage.init(named: "ic_list")
+        let settings = UIBarButtonItem.init(image: image, style: .plain, target: self, action: #selector(showSettings))
+        self.navigationItem.rightBarButtonItem = settings
+    }
+    
+    func showSettings() {
+       self.navigationController?.performSegue(withIdentifier: "showSettings", sender: self)
+    }
   
   func setUpTableView(){
     tableView.estimatedRowHeight = 100.0
