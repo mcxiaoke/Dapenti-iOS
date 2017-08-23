@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     FeedsPreference.handleFirstLaunch()
     FeedItem.loadVisitedIds()
     NotificationCenter.default.addObserver(self, selector: #selector(storeDidChange(_:)), name: NSUbiquitousKeyValueStore.didChangeExternallyNotification, object: [NSUbiquitousKeyValueStore.default()])
-//    setupNavigationBar()
+    setupNavigationBar()
     setUpTableView()
     setUpRecognizers()
     fetchFeedCache()
@@ -122,8 +122,13 @@ class ViewController: UIViewController {
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "showDetail" {
-      let controller = segue.destination as! DetailViewController
-      controller.item = items[selectedRow]
+        let controller = segue.destination as! DetailViewController
+        controller.item = items[selectedRow]
+    } else if segue.identifier == "showSettings" {
+        let controller = segue.destination as! SettingsViewController
+//        if UIDevice.current.userInterfaceIdiom == .pad {
+//            controller.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
+//        }
     }
   }
   

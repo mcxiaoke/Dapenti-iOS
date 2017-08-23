@@ -65,7 +65,7 @@ function removeOldStyles(){
 
 function changeStyle(){
     var bodyStyle = "background: #f7f8f4;\n"
-        + "font-size: 16px;\n"
+        + "font-size: 100%;\n"
         + "font-family: \"Hiragino Sans GB\", \"PingFang SC\", \"Heiti SC\", sans-serif;\n"
         + "text-align:left;\n"
         + "text-color: #5b5c5b;\n"
