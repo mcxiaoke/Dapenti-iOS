@@ -9,6 +9,7 @@
 import UIKit
 import SVPullToRefresh
 import MBProgressHUD
+import UIColor_Hex_Swift
 
 class ViewController: UIViewController {
   
@@ -96,7 +97,7 @@ class ViewController: UIViewController {
     if !dataInitialized {
       self.tableView.isHidden = true
       let hud =  MBProgressHUD.showAdded(to: self.view, animated: true)
-      hud.bezelView.color = Colors.mainColor
+      hud.bezelView.color = UIColor("#1565c0")
       hud.animationType = .fade
     }
     NSLog("fetchPages page=\(page)")
@@ -125,7 +126,7 @@ class ViewController: UIViewController {
         let controller = segue.destination as! DetailViewController
         controller.item = items[selectedRow]
     } else if segue.identifier == "showSettings" {
-        let controller = segue.destination as! SettingsViewController
+//        let controller = segue.destination as! SettingsViewController
 //        if UIDevice.current.userInterfaceIdiom == .pad {
 //            controller.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
 //        }

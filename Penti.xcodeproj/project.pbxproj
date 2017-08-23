@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		52D11472533E9E9641E5AD8E /* Pods_PentiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF1C920D7AFD2CC6F289C13F /* Pods_PentiTests.framework */; };
-		AA1658961D2B84250020F6BC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1658951D2B84250020F6BC /* Constants.swift */; };
 		AA1A1E161F4C188E00741B7E /* Browser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1A1E151F4C188E00741B7E /* Browser.swift */; };
 		AA1A1E181F4C20B100741B7E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1A1E171F4C20B100741B7E /* SettingsViewController.swift */; };
 		AA240EEB1D24F99F00DA1D2B /* FeedItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA240EEA1D24F99F00DA1D2B /* FeedItemCell.swift */; };
@@ -24,6 +23,7 @@
 		AAA7CCB01D23C8CD00A9A4F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA7CCAF1D23C8CD00A9A4F8 /* Assets.xcassets */; };
 		AAA7CCB31D23C8CD00A9A4F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAA7CCB11D23C8CD00A9A4F8 /* LaunchScreen.storyboard */; };
 		AAA7CCBE1D23C8CD00A9A4F8 /* PentiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA7CCBD1D23C8CD00A9A4F8 /* PentiTests.swift */; };
+		AACA57DD1F4D59BD00EA8F2D /* UserAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACA57DC1F4D59BD00EA8F2D /* UserAgent.swift */; };
 		AAD72F6F1D2A3F7E00510481 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = AAD72F6E1D2A3F7E00510481 /* content.js */; };
 		AAD72F731D2A42A200510481 /* zepto.min.js in Resources */ = {isa = PBXBuildFile; fileRef = AAD72F721D2A42A200510481 /* zepto.min.js */; };
 		AAD72F7A1D2A613600510481 /* style.js in Resources */ = {isa = PBXBuildFile; fileRef = AAD72F791D2A613600510481 /* style.js */; };
@@ -42,7 +42,6 @@
 
 /* Begin PBXFileReference section */
 		69AFBF9E25D68A6FE75DB43C /* Pods-Penti.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Penti.release.xcconfig"; path = "Pods/Target Support Files/Pods-Penti/Pods-Penti.release.xcconfig"; sourceTree = "<group>"; };
-		AA1658951D2B84250020F6BC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AA1A1E151F4C188E00741B7E /* Browser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Browser.swift; sourceTree = "<group>"; };
 		AA1A1E171F4C20B100741B7E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AA240EEA1D24F99F00DA1D2B /* FeedItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemCell.swift; sourceTree = "<group>"; };
@@ -64,6 +63,7 @@
 		AAA7CCB91D23C8CD00A9A4F8 /* PentiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PentiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA7CCBD1D23C8CD00A9A4F8 /* PentiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PentiTests.swift; sourceTree = "<group>"; };
 		AAA7CCBF1D23C8CD00A9A4F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AACA57DC1F4D59BD00EA8F2D /* UserAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAgent.swift; sourceTree = "<group>"; };
 		AAD72F6E1D2A3F7E00510481 /* content.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = content.js; sourceTree = "<group>"; };
 		AAD72F721D2A42A200510481 /* zepto.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = zepto.min.js; sourceTree = "<group>"; };
 		AAD72F791D2A613600510481 /* style.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = style.js; sourceTree = "<group>"; };
@@ -188,10 +188,10 @@
 				AAA7CCB11D23C8CD00A9A4F8 /* LaunchScreen.storyboard */,
 				AAA7CCB41D23C8CD00A9A4F8 /* Info.plist */,
 				AA240EF11D251F8D00DA1D2B /* DetailViewController.swift */,
-				AA1658951D2B84250020F6BC /* Constants.swift */,
 				AA8077571D2E33D700F1B88E /* Penti-Bridging-Header.h */,
 				AA1A1E151F4C188E00741B7E /* Browser.swift */,
 				AA1A1E171F4C20B100741B7E /* SettingsViewController.swift */,
+				AACA57DC1F4D59BD00EA8F2D /* UserAgent.swift */,
 			);
 			path = Penti;
 			sourceTree = "<group>";
@@ -361,6 +361,7 @@
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityIndicator/AlamofireNetworkActivityIndicator.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/GBDeviceInfo/GBDeviceInfo.framework",
 				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
@@ -377,6 +378,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityIndicator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GBDeviceInfo.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
@@ -484,8 +486,8 @@
 				AA240EEB1D24F99F00DA1D2B /* FeedItemCell.swift in Sources */,
 				AAA7CCAB1D23C8CD00A9A4F8 /* ViewController.swift in Sources */,
 				AA240EF21D251F8D00DA1D2B /* DetailViewController.swift in Sources */,
+				AACA57DD1F4D59BD00EA8F2D /* UserAgent.swift in Sources */,
 				AA1A1E161F4C188E00741B7E /* Browser.swift in Sources */,
-				AA1658961D2B84250020F6BC /* Constants.swift in Sources */,
 				AAA7CCA91D23C8CD00A9A4F8 /* AppDelegate.swift in Sources */,
 				AA240EF01D2503B400DA1D2B /* Feeds.swift in Sources */,
 				AA1A1E181F4C20B100741B7E /* SettingsViewController.swift in Sources */,

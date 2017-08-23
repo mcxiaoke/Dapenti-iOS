@@ -22,7 +22,7 @@ class DetailViewController: UIViewController {
     setUpWebView()
     self.title = "\(item?.id ?? 0)"
     if let url = item?.url {
-        NSLog("url = \(url)")
+        NSLog("webView url = \(url)")
       webView?.load(URLRequest(url: url as URL))
     }
     

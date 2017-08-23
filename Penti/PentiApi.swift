@@ -17,14 +17,13 @@ enum PentiURL:String{
   case api = "http://appb.dapenti.com/index.php?s=/home/api/tugua/p/%d/limit/%d"
 }
 
-let NSStringEncodingGBK = CFStringConvertEncodingToNSStringEncoding(CFStringEncoding(CFStringEncodings.GB_18030_2000.rawValue))
-let StringEncodingGBK = String.Encoding(rawValue: NSStringEncodingGBK)
-let UserAgentMobile = "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) Version/10.0 Mobile/14G60 Safari/602.1"
-let Headers: HTTPHeaders = [
-    "UserAgent": UserAgentMobile
+internal let NSStringEncodingGBK = CFStringConvertEncodingToNSStringEncoding(CFStringEncoding(CFStringEncodings.GB_18030_2000.rawValue))
+internal let StringEncodingGBK = String.Encoding(rawValue: NSStringEncodingGBK)
+internal let Headers: HTTPHeaders = [
+    "UserAgent": UserAgent.defaultUA
 ]
 
-let kFeedCacheFileName = "FeedCache.dat"
+internal let kFeedCacheFileName = "FeedCache.dat"
 
 class PentiApi {
   

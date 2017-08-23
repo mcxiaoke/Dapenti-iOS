@@ -19,6 +19,7 @@ target 'Penti' do
   pod 'TUSafariActivity', '~> 1.0'
   pod 'UIColor_Hex_Swift', '~> 3.0.2'
   pod 'SwiftyStoreKit', '~> 0.5.0'
+  pod 'GBDeviceInfo', '~> 4.2'
   pod 'Bugly'
 
   target 'PentiTests' do
