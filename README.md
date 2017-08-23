@@ -1,8 +1,12 @@
 # Introduction
 
-A simple dapenti.com reader App, written in Swift.
+A simple dapenti.com reader iOS App, written in Swift.
 
-一个简单的阅读喷嚏图卦的App，支持按日期浏览，简洁，无广告。
+一个简洁的阅读喷嚏图卦的App，支持按日期浏览，纯净无广告。
+
+扫码下载:
+
+![](Artworks/appstore.png)
 
 Download on [App Store](https://itunes.apple.com/cn/app/kan-tu-gua/id1132824499?mt=8)
 
@@ -10,7 +14,7 @@ Download on [App Store](https://itunes.apple.com/cn/app/kan-tu-gua/id1132824499?
 
 This project is licensed under the terms of the GPLv3 license.
 
-Copyright (C) 2016  mcxiaoke <github@mcxiaoke.com>
+Copyright (C) 2017  mcxiaoke <github@mcxiaoke.com>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
